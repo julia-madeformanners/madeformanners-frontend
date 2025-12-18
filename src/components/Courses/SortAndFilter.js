@@ -153,7 +153,7 @@ const SortAndFilter = () => {
                         />
                     </div>
 
-                    <div className="mt-3">
+                    {/* <div className="mt-3">
                         <strong>By Price</strong>
                         <Slider
                             range
@@ -166,8 +166,8 @@ const SortAndFilter = () => {
                             <span>${priceRange[0]}</span>
                             <span>${priceRange[1]}</span>
                         </div>
-                    </div>
-                    {userDetails && (
+                    </div> */}
+                    {/* {userDetails && (
                         <div className="mt-3">
                             <strong>Status</strong>
                             <div className="d-flex align-items-center mt-2">
@@ -182,7 +182,7 @@ const SortAndFilter = () => {
                                 </label>
                             </div>
                         </div>
-                    )}
+                    )} */}
                 </Dropdown.Menu>
             </Dropdown>
 

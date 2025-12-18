@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Header.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
-import logo from '../../images/img.jpg';
+import logo from '../../images/img.jpeg';
 import { useBetween } from 'use-between';
 import { useSelector } from 'react-redux';
 import { Alert, Dropdown } from 'react-bootstrap';

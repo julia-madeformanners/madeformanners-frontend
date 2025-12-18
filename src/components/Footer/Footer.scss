@@ -5,9 +5,9 @@ $color: $Second-Color;
 .footer {
   background-color: $First-Color;
   color: #fff;
-  padding: 50px 0 0;
+  padding: 50px 20px 0;
   width: 100vw;
-  margin-top: 10rem;
+  margin-top: 1rem;
 
   .footer-container {
     display: flex;
@@ -17,7 +17,7 @@ $color: $Second-Color;
     gap: 2%;
 
     .logo-section img {
-      width: 50%;
+      width: 200px;
       margin: 0 auto;
       border-radius: 20px;
 
@@ -142,7 +142,11 @@ $color: $Second-Color;
 
       .footer-section {
         min-width: 0;
-        margin-top: 50px;
+        margin: 20px 5px;
+        padding: 0 15px;
+       
+         
+      
       }
       .line{
         display: none;

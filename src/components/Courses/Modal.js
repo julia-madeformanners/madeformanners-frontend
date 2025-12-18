@@ -13,6 +13,7 @@ const CourseModal = () => {
   const { courseType } = location.state || {}; // 'Face-to-Face' , 'Online'
 
   const state = useSelector((state) => state.data);
+
   const {
     userDetails,
     courseDetails,
@@ -65,19 +66,30 @@ const CourseModal = () => {
       categories: [],
       bookedUsers: [],
       joinedUsers: [],
+      
     });
     setError(false);
     setTimeError(false);
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setCourseDetails((prev) => ({ ...prev, img: reader.result }));
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "react_upload"); 
+    formData.append("cloud_name", "diurythny");       
+
+    try {
+      const res = await axios.post(
+        `https://api.cloudinary.com/v1_1/diurythny/image/upload`,
+        formData
+      );
+      setCourseDetails((prev) => ({ ...prev, img: res.data.secure_url }));
+    } catch (err) {
+      console.error("Error uploading image to Cloudinary", err);
+      alert("Failed to upload image");
     }
   };
 

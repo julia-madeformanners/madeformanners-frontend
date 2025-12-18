@@ -8,8 +8,8 @@ const PromoVideo = () => {
 
       <div className="video-slider-container">
         <iframe
-          src={promoVideo}
-          width="50%"
+          src=""
+          width="90%"
           height="100%"
           allow="autoplay; fullscreen"
           title="promo"

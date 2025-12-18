@@ -6,10 +6,10 @@ import { useBetween } from "use-between";
 import { Helmet } from "react-helmet";
 
 export default function PolicyPage() {
-     const state = useSelector((state) => state.data);
-  const {
-    pageDescription, pageKeywords, websiteTitle
-  } = useBetween(state.useShareState);
+    const state = useSelector((state) => state.data);
+    const {
+        pageDescription, pageKeywords, websiteTitle
+    } = useBetween(state.useShareState);
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -28,43 +28,78 @@ export default function PolicyPage() {
 
             <section>
                 <h2>1. About the Platform</h2>
-                <p>Made for Manners is an online learning platform that offers live-streamed video sessions focused on etiquette and manners. Each session is recorded and available for one week after the live broadcast.</p>
+                <p>
+                    Made for Manners is an informational platform designed to present details about etiquette and manners courses.
+                    The platform does not provide online courses or live-streamed sessions.
+                    Its purpose is to showcase course information and facilitate inquiries.
+                </p>
             </section>
 
             <section>
-                <h2>2. Access to Sessions</h2>
-                <p>Access to each session recording is available for seven (7) days from the date of the live broadcast. After that period, access will automatically expire. Access is personal and may not be shared or transferred.</p>
+                <h2>2. Course Inquiries and Booking</h2>
+                <p>
+                    All course bookings, confirmations, and payment arrangements are handled exclusively through direct communication via email.
+                    To inquire about availability, pricing, or enrollment, users must contact us at
+                    <a href="mailto:hello@madeformanners.com"> hello@madeformanners.com</a>.
+                </p>
             </section>
 
             <section>
-                <h2>3. Payment and Refund Policy</h2>
-                <p>All sessions must be paid for prior to attendance. Once payment and booking are confirmed, no cancellations, refunds, or changes are allowed under any circumstances.</p>
+                <h2>3. Response Time</h2>
+                <p>
+                    Our team will respond to all inquiries within a maximum period of two (2) business days.
+                </p>
             </section>
 
             <section>
-                <h2>4. Recording and Content Use</h2>
-                <p>All live sessions may be recorded for educational and quality purposes. Participants are not permitted to download, copy, or redistribute any part of the recorded content. All rights to the material belong to Made for Manners.</p>
+                <h2>4. Payments and Confirmations</h2>
+                <p>
+                    Payments are not processed directly through the website.
+                    All payment details and confirmations are shared after email communication and agreement on the course details.
+                </p>
             </section>
 
             <section>
-                <h2>5. User Conduct</h2>
-                <p>Participants are expected to behave respectfully and professionally during all live sessions. Any inappropriate or disruptive behavior may result in removal without refund.</p>
+                <h2>5. Content and Information Accuracy</h2>
+                <p>
+                    While we strive to keep all course information accurate and up to date,
+                    details such as schedules, pricing, and availability are subject to change
+                    and will be confirmed via email.
+                </p>
             </section>
 
             <section>
-                <h2>6. Privacy</h2>
-                <p>We only collect the necessary information required to process registrations and provide session access. We do not sell or share any user data with third parties.</p>
+                <h2>6. User Conduct</h2>
+                <p>
+                    Users are expected to communicate respectfully and professionally when contacting us.
+                    Any misuse of the platform or inappropriate communication may result in refusal of service.
+                </p>
             </section>
 
             <section>
-                <h2>7. Policy Updates</h2>
-                <p>Made for Manners reserves the right to update or modify these policies at any time. Updates will be reflected on this page along with the date of the last revision.</p>
+                <h2>7. Privacy</h2>
+                <p>
+                    We only collect the necessary information required to respond to inquiries and manage bookings.
+                    We do not sell, rent, or share personal data with third parties.
+                </p>
             </section>
 
             <section>
-                <h2>8. Contact</h2>
-                <p>For any questions or concerns, please contact us at <a href="mailto:hello@madeformanners.com">hello@madeformanners.com</a>.</p>
+                <h2>8. Policy Updates</h2>
+                <p>
+                    Made for Manners reserves the right to update or modify these policies at any time.
+                    Any changes will be published on this page.
+                </p>
             </section>
+
+            <section>
+                <h2>9. Contact</h2>
+                <p>
+                    For inquiries, bookings, or further information, please contact us at
+                    <a href="mailto:hello@madeformanners.com"> hello@madeformanners.com</a>.
+                </p>
+            </section>
+
 
         </div>
     );

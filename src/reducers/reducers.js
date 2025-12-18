@@ -10,12 +10,11 @@ const reminders = (state = [], action) => {
         const [allCourses, setAllCourses] = useState([])
         const [Loading, setLoading] = useState(false);
         const [reload, setReload] = useState(false);
-        const serverUrl = 'http://localhost:5000'
-        // const serverUrl = 'https://madeformanners-backend.onrender.com'
+        // const serverUrl = 'http://localhost:5000'
+        const serverUrl = 'https://madeformanners-backend.onrender.com'
         // const serverUrl='https://manor-of-manners-backend.onrender.com'
         const courseValid = 'Please note that the course will be available to watch for only one week after the course date'
         // <SEO>
-
         const websiteTitle = `Made for Manners`
         const pageDescription = `Discover ${websiteTitle} — your destination for online etiquette and social skills courses. Learn professional behavior, confidence, and refined manners through engaging video lessons and expert guidance.`;
 
@@ -82,8 +81,7 @@ const reminders = (state = [], action) => {
         const [showDetails, setShowDetails] = useState(false);
 
         const categories = [
-            { id: 0, level: 'Youth', icon: '', color: 'blue' },
-            { id: 1, level: 'Student', icon: '', color: 'green' },
+            { id: 1, level: 'Youth & Student', icon: '', color: 'green' },
             { id: 2, level: 'Professional & Executive', icon: '', color: 'pink' },
             { id: 3, level: 'International Etiquette', icon: '', color: 'gold' },
             { id: 4, level: 'Private Coaching', icon: '', color: 'gold' }

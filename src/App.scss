@@ -30,8 +30,8 @@ body {
   // padding: 0 25px;
   font-style: unset;
   margin: auto;
-  
 }
+
 
 .page-container {
   display: flex;
@@ -132,6 +132,8 @@ $num : 3.5rem;
 
 .NoCourses {
   width: 90vw;
+ 
+  
   @include flexBox();
 }
 

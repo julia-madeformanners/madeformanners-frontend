@@ -2,6 +2,28 @@
 
 .Home {
 
+  .clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .see-more-btn {
+    background: none;
+    border: none;
+    color: $Font-Color;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    background-color: $Second-Color;
+    padding: 10px 40px;
+    border-radius: 20px;
+    &:hover{
+      background-color: $First-Color;
+      color: #fff;
+    }
+  }
 
   .video-hero {
     background-color: $Second-Color;
@@ -19,9 +41,11 @@
 
     &__video {
 
-      width: 80%;
+      width: 100%;
       height: 100%;
       object-fit: cover;
+      margin-left: 5px;
+
     }
 
     &__overlay {
@@ -32,7 +56,7 @@
       text-align: center;
       color: $Font-Color;
       z-index: 2;
-      width: 80%;
+      width: 90%;
 
       h1 {
         font-size: 2rem;
@@ -57,7 +81,7 @@
 
       .btn {
         text-align: center;
-        padding: 0.4rem 2.9rem;
+        padding: 0.4rem 2.5rem;
         font-size: 1rem;
         border: none;
         cursor: pointer;
@@ -66,7 +90,12 @@
         letter-spacing: 1.5px;
         color: $Font-Color;
         background-color: $First-Color;
-        width: max-content;
+        width: 100%;
+
+        @media (max-width: 900px) {
+          padding: 0.4rem 1.2rem;
+          letter-spacing: 0.9px;
+        }
 
         &:hover {
           background-color: $Second-Color;
@@ -115,7 +144,7 @@
   .intro {
 
     .introCont {
-      margin-top: -25px;
+      margin-top: -20px;
 
     }
 
@@ -124,8 +153,11 @@
       font-size: 1.1rem;
       line-height: 1;
       margin-bottom: 1rem;
-
+.aboutJulia1{
+      text-decoration: underline;
     }
+    }
+    
 
     .cta-btn {
       background-color: $Second-Color;
@@ -158,10 +190,16 @@
 
     }
 
-   .welcome img {
+    .i {
+
+      margin-bottom: -200px;
+    }
+
+
+    .welcome img {
       width: 25px;
       height: 25px;
-      margin-top: -15px;
+
       // margin-left: 10px;
 
     }
@@ -172,7 +210,10 @@
       text-decoration: underline;
       color: $First-Color;
       font-weight: 500;
-      margin-left: 80%;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:hover {
         color: $Second-Color;
@@ -182,13 +223,11 @@
 
   // --- What We Offer + Programmes Overview ---
   .recommended.what-we-offer {
-    background: linear-gradient(
-    to top,          
-    $First-Color 0%,       
-    #6f3fcf 50%,       
-    $Second-Color 100%     
-  );
-  
+    background: linear-gradient(to top,
+        $First-Color 0%,
+        #6f3fcf 50%,
+        $Second-Color 100%);
+
     padding: 20px;
 
     .topic {
@@ -202,9 +241,6 @@
       padding: 24px;
       // background-color: $Second-Color;
       place-items: center;
-     
-
-
       @media (min-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -218,9 +254,13 @@
         text-align: center;
         position: relative;
         overflow: visible;
-        width: 55%;
-        height: 90%;
+        width: 60%;
+        height: max-content;
         margin-top: 40px;
+
+        @media (max-width: 900px) {
+          width: 100%;
+        }
 
 
         .bubble-image {
@@ -244,7 +284,7 @@
         }
 
         h2 {
-          margin-top: 48px;
+          margin-top: 9px;
           font-size: 1.2rem;
           font-weight: 600;
         }
@@ -269,7 +309,7 @@
 .identity-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 10px;
 }
 
 .identity-card {
@@ -279,21 +319,27 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  padding: 20px;
+  padding: 10px;
+
 }
 
 .card1 {
-  background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20221007/pngtree-successful-business-meeting-etiquette-handshakes-congratulatory-gestures-and-mergeracquisition-concept-photo-image_48970840.jpg'); 
+
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20221007/pngtree-successful-business-meeting-etiquette-handshakes-congratulatory-gestures-and-mergeracquisition-concept-photo-image_48970840.jpg');
 }
 
 .card2 {
-  background-image: url('https://www.nafeza2world.com/temp/resized/medium_2025-12-06-a7e8a188f3.jpg'); 
+  background-image: url('https://www.nafeza2world.com/temp/resized/medium_2025-12-06-a7e8a188f3.jpg');
   margin-top: 60px;
-  
+
+  .pCard2 {
+    text-align: left;
+  }
 }
 
 .card3 {
-  background-image: url('https://ar.lpcentre.com/_next/image?url=https%3A%2F%2Far-backend.lpcentre.com%2F%2Farticle_header_image%252FEtiquette%2520Skills%25202_1653337701.jpg&w=1200&q=75'); 
+
+  background-image: url('https://ar.lpcentre.com/_next/image?url=https%3A%2F%2Far-backend.lpcentre.com%2F%2Farticle_header_image%252FEtiquette%2520Skills%25202_1653337701.jpg&w=1200&q=75');
 }
 
 .identity-content {
@@ -304,6 +350,9 @@
   backdrop-filter: blur(4px);
   background-color: $First-Color;
   color: $Font-Color;
+  margin-left: 20px;
+
+
 }
 
 .identity-content h3 {
@@ -329,5 +378,16 @@
 
   .identity-card {
     height: 380px;
+  }
+
+  .video-hero {
+    .video {
+      width: 100vw;
+
+    }
+
+    &__video {
+      width: 90vw;
+    }
   }
 }

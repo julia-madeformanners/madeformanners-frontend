@@ -1,6 +1,6 @@
 // import React, { useEffect } from "react";
 // import './AboutUs.scss';
-import teacherImg from "../../images/1.jpg";
+import teacherImg from "../../images/julia_photo.jpeg";
 // import { Helmet } from "react-helmet";
 // import { useSelector } from "react-redux";
 // import { useBetween } from "use-between";
@@ -11,7 +11,7 @@ import teacherImg from "../../images/1.jpg";
 
 
 //     useEffect(() => {
-        
+
 //         window.scrollTo(0, 0);
 
 //         const aboutSection = document.querySelector(".about-us");
@@ -34,7 +34,7 @@ import teacherImg from "../../images/1.jpg";
 
 //         return () => observer.disconnect();
 //     }, []);
-   
+
 //     const aboutSections = [
 //         {
 //             title: "Who We Are",
@@ -83,7 +83,7 @@ import teacherImg from "../../images/1.jpg";
 //                     </div>
 //                 </div>
 
-               
+
 //                 <div className="content founder-message">
 //                     <div className="image" data-animate="slide-left">
 //                         <img src={teacherImg} alt="Julia - Founder" />
@@ -113,48 +113,62 @@ import { WOW } from "wowjs";
 import "animate.css";
 import "./AboutUs.scss";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useBetween } from "use-between";
+import { Helmet } from "react-helmet";
 
 const AboutUs = () => {
   useEffect(() => {
     new WOW().init();
-     window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, []);
+  const state = useSelector((state) => state.data);
+  const { pageKeٍywords, websiteTitle } = useBetween(state.useShareState);
+  const text = "Raised in Moldova as one of five siblings, Julia’s professional ethic is rooted in diversity and cultural awareness. She believes that regardless of background, everyone deserves the confidence to present their best self to the world. Her global perspective comes from lived experience. Having worked and studied in multi-cultural London, Julia’s cross-community understanding runs deep. A year spent living and working in the UAE further broadened her expertise in international conduct, giving her the knowledge to guide others toward inclusive social awareness."
 
   return (
     <section className="about-julia">
-        <div className="innerContainer">
-      <div className="about-julia__inner">
+      <Helmet>
+        <title>About | {websiteTitle}</title>
+        <link rel="canonical" href="https://madeformanners.com/contact" />
+        <meta
+          name="description"
+          content="made for manners contact us  hello@madeformanners.com "
+        />
+        <meta
+          name="keywords"
+          content={`${pageKeٍywords} ${text}`}
+        />
+        <meta property="og:title" content={`About us - ${websiteTitle}`} />
+        <meta property="og:description" content={text} />
+      </Helmet>
+      <div className="innerContainer">
+        <div className="about-julia__inner">
 
-       
-        <div className="about-julia__text wow animate__animated animate__fadeInLeft">
-          <h2 className="about-julia__title wow animate__animated animate__fadeInDown">
-            About Julia
-          </h2>
 
-          <p>
-            Welcome to Made for Manners. This company was founded on a simple belief:
-            true confidence and courtesy should empower, not intimidate. Today, good manners
-            are less about formality and more about awareness — of how we make others feel,
-            and how we present ourselves to the world. Our role is to help you refine that
-            awareness, so you feel comfortable, composed, and confident in any environment.
-            Refinement is not about changing who you are — it’s about enhancing the way you
-            move, speak, and connect. Because when you feel at ease, everything else follows naturally.
-          </p>
+          <div className="about-julia__text wow animate__animated animate__fadeInLeft">
+            <h2 className="about-julia__title wow animate__animated animate__fadeInDown">
+              About Julia
+            </h2>
 
-          <p className="about-julia__signature">With warmth,</p>
-          <p className="about-julia__signature">Julia</p>
-          <p className="about-julia__role">Founder, Made for Manners</p>
+            <p>
+              {text}
+            </p>
+
+            <p className="about-julia__signature">With warmth,</p>
+            <p className="about-julia__signature">Julia</p>
+            <p className="about-julia__role">Founder, Made for Manners</p>
+          </div>
+
+
+          <div className="about-julia__image-wrap wow animate__animated animate__fadeInRight">
+            <img
+              src={teacherImg}
+              alt="Julia"
+              className="about-julia__image"
+            />
+          </div>
         </div>
-
-      
-        <div className="about-julia__image-wrap wow animate__animated animate__fadeInRight">
-          <img
-            src={teacherImg}
-            alt="Julia"
-            className="about-julia__image"
-          />
-        </div>
-      </div>
       </div>
 
       <div className="about-julia__bottom wow animate__animated animate__fadeInUp">
@@ -168,4 +182,4 @@ const AboutUs = () => {
   );
 }
 
- export default AboutUs;
+export default AboutUs;

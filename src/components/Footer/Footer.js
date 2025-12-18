@@ -1,22 +1,21 @@
 import { NavLink } from "react-router-dom";
 import "./Footer.scss";
-import logo from "../../images/img.jpg";
+import logo from "../../images/img.jpeg";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-
-
         <div className="footer-section logo-section">
           <img src={logo} alt="Made for Manners Logo" />
         </div>
         <div className="line"></div>
         <div className="footer-section about-section">
           <p>
-            We offer online etiquette lessons for all ages, guided by an experienced instructor.
-            Our affordable courses cover various styles and approaches, with free videos from Ms. Julie to help everyone practice proper etiquette.
+            We offer etiquette support for all ages, guided by an experienced instructor. Operating from Windsor and Abu Dhabi, we guide families and professionals committed to advancing in life and career.
+            Certified at Minding Manners International Etiquette and Protocol Academy.
           </p>
+       
         </div>
         <div className="line"></div>
 

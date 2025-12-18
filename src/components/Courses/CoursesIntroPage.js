@@ -1,7 +1,14 @@
+import { useEffect } from 'react';
 import './CoursesIntroPage.scss'
 import { NavLink } from 'react-router-dom';
 
 const Intro = () => {
+     useEffect(() => {
+    
+        window.scrollTo(0, 0);
+    
+      }, []);
+
     return (
         <div className="intro-container">
             <section className="intro-section">
@@ -11,15 +18,15 @@ const Intro = () => {
                 <div className="intro-text left">
                     <h2>Face-to-Face Courses</h2>
                     <p>
-                        Learn directly with our instructors through in-person classes designed
-                        for practical learning and real interaction.
-                    </p>
+                   Today, etiquette goes beyond formality, focusing on refined self-awareness, confidence, and presence. Refinement is a lifelong journey that enhances how we carry ourselves and helps us navigate interactions with ease, leaving a lasting positive impression.
+                   <br/>
+                   Everyday life in the contemporary world can make it hard for young people to develop social awareness. Our programmes give them the skills they need to succeed both socially and professionally.
+                   </p>
 
                     <NavLink to="/coursesdetelias"
                         className="intro-btn"
                         state={{ courseType: 'Face-to-Face Course' }}
                     >
-
                         View Face-to-Face Courses
                     </NavLink>
                 </div>

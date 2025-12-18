@@ -1,43 +1,44 @@
 import './Home.scss';
 import 'animate.css';
 import { WOW } from 'wowjs';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PromoVideo from "./PromoVideo";
 import CoursesContaner from '../Courses/CoursesCont';
 import { NavLink } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { useSelector } from 'react-redux';
 import { useBetween } from 'use-between';
-import image from '../../images/img.jpg';
+import image from '../../images/img.jpeg';
 import img1 from '../../images/Youth.png';
 import img2 from '../../images/professional.png';
 import img3 from '../../images/Private.png';
 import img4 from '../../images/online-coach.png';
 import waving from '../../images/waving.gif'
 import introVideo from '../../images/introVideo.mp4';
+import BubbleCard from './BubbleCard';
 
 const Home = () => {
   const items = [
     {
       title: "Youth & Students — Confidence for every stage.",
-      text: "We help young people develop social awareness, communication skills, and self-assurance — preparing them for interviews, internships, and new experiences.",
+      text: "We offer an engaging mix of activities designed to help young people feel at ease in any situation. Our lively half-day and full-day workshops are designed to help build the social intelligence and self-assurance to confidently move through study and early professional experiences. Students will develop leadership, social, communication and table etiquette skills, alongside meaningful relationships in a supportive setting. Our International youth etiquette programmes are tailored to two age groups. Little Society Stars is suited to children aged 8–12 Young Adult Social Mastery is designed for young people aged 13–17",
       img: img1
     },
+    // {
+    //   title: "Professionals & Entrepreneurs — Presence that supports ambition.",
+    //   text: "Learn to communicate with clarity and confidence, refine your image, and represent your brand or career with authenticity.",
+    //   img: img2
+    // },
     {
-      title: "Professionals & Entrepreneurs — Presence that supports ambition.",
-      text: "Learn to communicate with clarity and confidence, refine your image, and represent your brand or career with authenticity.",
-      img: img2
-    },
-    {
-      title: "International Etiquette — Confidence across cultures.",
-      text: "Navigate professional and social settings globally with ease, cultural awareness, and composure.",
+      title: "Social etiquette",
+      text: "Adults of all ages can learn to communicate with improved clarity and confidence. Our approach respects the heritage of traditional etiquette while focusing on skills that remain relevant and genuinely useful today. We offer three signature programmes to support different stages of personal development. The Elegance & Etiquette Mastercourse is a five day immersion devoted to advanced social behaviour and refined interaction. Crafting Your Social Identity is a two day programme centred on communication, confidence and sense of self. Cultural Grace & Global Presence is a three day programme that explores international etiquette and cultural understanding.",
       img: img3
     },
-    {
-      title: "Private Coaching — Personalised refinement.",
-      text: "One-to-one sessions designed to enhance posture, presence, and communication in a way that feels natural and authentic.",
-      img: img4
-    }
+    // {
+    //   title: "Private Coaching — Personalised refinement.",
+    //   text: "One-to-one sessions designed to enhance posture, presence, and communication in a way that feels natural and authentic.",
+    //   img: img4
+    // }
   ];
 
   useEffect(() => {
@@ -56,6 +57,7 @@ const Home = () => {
     { title: "Private Coaching — Personalised refinement.", desc: "One-to-one sessions designed to enhance posture, presence, and communication in a way that feels natural and authentic." }
   ];
 
+
   return (
     <div className="Home">
       <Helmet>
@@ -70,17 +72,21 @@ const Home = () => {
       {/* --- 1. Hero Section --- */}
       <div className="video-hero">
         <video className="video-hero__video" autoPlay loop muted>
-          <source src={introVideo} type="video/mp4" />
+          <source src="" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
         <div className="video-hero__overlay">
           <h1>
-            Authenticity refined. Confidence reimagined.<br />
-            <span>Where etiquette becomes empowerment.</span>
+            The Modern Art of Grace.<br /><br />
+            <h2>Be the change that inspires your generation</h2>
+            <span
+            ><i>Shape your life and the world around you</i><br /><br />
+              <i>Lead by example through all stages of life</i><br />
+
+            </span>
           </h1>
           <div className="video-hero__buttons">
-
             <NavLink to="/courses"><button className="btn explore">Explore Courses</button></NavLink>
             <NavLink to="/contact"><button className="btn enquire">Enquire Now</button></NavLink>
           </div>
@@ -90,26 +96,29 @@ const Home = () => {
       {/* --- 2. Intro Text + Video --- */}
       <section className="intro wow animate__animated animate__fadeInRight">
         <div className="recommended">
-          <span className='welcome'>
-            <p className="topic">Welcome to Made for Manners </p>
-            <img src={waving} alt="waving" />
-          </span>
+          {/* <span className='welcome'> */}
+          <p className="topic welcome">Welcome to Made for Manners </p>
+          <i className='i'>Etiquette Consultancy</i>
+
+          {/* </span> */}
           {/* <div className="line-container">
             <span className="line"></span> */}
           {/* <img src={waving} alt="waving " /> */}
           {/* </div> */}
+
         </div>
         <div className='introCont'>
-          <p>Welcome to Made for Manners, where timeless refinement meets real-world confidence. Here, etiquette isn’t about rules — it’s about freedom and expression.</p>
-          <p>Our approach transforms etiquette into a tool for confidence, communication, and grace.</p>
-          <p>Watch how modern manners can empower you to connect and carry yourself with ease.</p>
+          <p>Made for Manners is built on traditional values of integrity and respect.</p>
+          <p>These principles were instilled in founder Julia from childhood
+            <NavLink to="/about" className="aboutJulia1">, About Julia </NavLink></p>
+          <p>shaped by parents who proudly upheld the highest standards in all aspects of life.</p>
         </div>
         {/* <button className="cta-btn" onClick={() => setShowVideo(!showVideo)}>▶ Watch the Video</button> */}
         {/* {showVideo &&  */}
         <PromoVideo />
         {/* } */}
-      </section>
 
+      </section>
 
       {/* --- What We Offer --- */}
       <div className="recommended what-we-offer wow animate__animated animate__fadeIn">
@@ -120,17 +129,7 @@ const Home = () => {
         </div> */}
         <div className="four-bubbles-wrapper">
           {items.map((item, index) => (
-            <div
-              className={`bubble-card wow animate__animated animate__fadeInUp`}
-              data-wow-delay={`${index * 0.3}s`}
-              key={index}
-            >
-              <div className="bubble-image">
-                <img src={item.img} alt={item.title} />
-              </div>
-              <h2>{item.title}</h2>
-              <p>{item.text}</p>
-            </div>
+           <BubbleCard key={index} item={item} index={index} />
           ))}
         </div>
       </div>
@@ -142,20 +141,21 @@ const Home = () => {
             <div className="identity-content">
               <h3>Our Vision</h3>
               <p>
-                To make etiquette modern, meaningful, and universal — a pathway to
-                genuine confidence and connection.
+                To make modern etiquette the new standard. Encouraging young people and professionals to develop refined social awareness and an authentic presence.
               </p>
             </div>
           </div>
+          
 
           <div className="identity-card card2">
             <div className="identity-content">
               <h3>Our Values</h3>
-              <p>
-                Grace — Composure and consideration in every action. Authenticity —
-                True elegance begins with being yourself. Respect — Courtesy and
-                empathy build lasting connections. Confidence — Preparation creates
-                freedom. Legacy — Every act of grace leaves an impression.
+              <p className='pCard2'>
+                ● Grace : Always move with composure and consideration.<br />
+                ● Authenticity : Communicate effectively while staying true to who you are.<br />
+                ● Respect : Show courtesy to others and uphold the same standards for yourself. <br />
+                ● Confidence : Be prepared and poised to make a positive impression. <br />
+                ● Legacy : Remember that every interaction leaves a lasting mark.
               </p>
             </div>
           </div>
@@ -164,9 +164,7 @@ const Home = () => {
             <div className="identity-content">
               <h3>Our Promise</h3>
               <p>
-                We make etiquette feel natural, practical, and alive. Our teaching is
-                approachable, intelligent, and warm — focused on confidence that lasts
-                long after the lesson ends.
+                Made for Manners brings approachable, warm etiquette guidance to families and individuals pursuing excellence. Our work focuses on developing social skills and self-assurance to last a lifetime.
               </p>
             </div>
           </div>
@@ -175,18 +173,18 @@ const Home = () => {
       </section>
 
       {/* --- Recommended Section --- */}
-      <div className='recommended wow animate__animated animate__fadeInUp'>
-        <p className="topic">Recommended Courses</p>
+      {/* <div className='recommended wow animate__animated animate__fadeInUp'>
+        <p className="topic">Recommended Courses</p> */}
         {/* <div className="line-container">
           <span className="line"></span> */}
         {/* <i className="fas fa-star"></i> */}
         {/* </div> */}
-        <NavLink className='all-courses' to='/Courses'>all courses</NavLink>
+        {/* <NavLink className='all-courses' to='/Courses'>all courses</NavLink> */}
         {/* <div className='noti'>
           Please be advised that once the payment for the course has been completed, cancellations and refunds are not permitted.
         </div> */}
-        <CoursesContaner type="recommended" />
-      </div>
+        {/* <CoursesContaner type="recommended" />
+      </div> */}
 
       {/* --- Follow Us Section --- */}
       {/* <div className="recommended follow-us wow animate__animated animate__fadeInUp">
@@ -205,7 +203,8 @@ const Home = () => {
           <a href="https://www.tiktok.com/@user1742031833181" target="_blank" rel="noopener noreferrer" aria-label="tiktok" title='tiktok'><i className="fab fa-tiktok"></i></a>
           <a href="http://www.linkedin.com/in/made-for-manners" target="_blank" rel="noopener noreferrer" aria-label="linkedin" title='linkedin'><i className="fab fa-linkedin-in"></i></a>
         </div>
-      </div> */}
+      </div> 
+      */}
     </div>
   );
 };
