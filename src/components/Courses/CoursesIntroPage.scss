@@ -3,8 +3,8 @@
 .intro-container {
   width: 85%;
   margin: auto;
-  margin-top: $top;
-  padding: 3rem 0;
+  margin-top: $top ;
+  padding: 2rem 0;
 }
 
 .intro-section {
@@ -62,10 +62,10 @@
 }
 
 .online-steps {
-  width: 90%;
+  width: 100%;
   margin: 2rem auto;
   background: $Second-Color;
-  padding: 2rem;
+  padding: 2rem 1rem;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 
@@ -106,4 +106,15 @@
     text-align: center;
     
   }
+  .online-steps{
+   
+    margin-top: -40px;
+  }
+  .intro-section {
+  gap: 0px;
+ 
+}
+.intro-container {
+  padding: 1rem 0;
+}
 }

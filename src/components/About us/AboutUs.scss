@@ -7,7 +7,7 @@
     align-items: center;
     gap: 1rem;
     margin-top: 50px;
-  
+
 
 
     img {
@@ -31,7 +31,7 @@
 
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1.5rem;
     font-style: oblique;
     padding: 6rem 5rem;
     color: $Font-Color;
@@ -40,7 +40,7 @@
 
 
     @media (max-width: 768px) {
-        padding: 4rem 2rem;
+        padding: 3rem 2rem;
     }
 
     p {
@@ -86,24 +86,17 @@
 
 }
 
-@media (min-width: 968px) {
-    .about-julia__inner {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-    }
-}
 
 .about-julia__text {
-    flex: 1 1 50%;
+    flex: 1 1 55%;
     margin-top: 0px;
     line-height: 2.2;
     font-size: 1rem;
 }
 
 .about-julia__title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 500;
     margin-bottom: 1rem;
 }
 
@@ -163,4 +156,12 @@
 .btn-enquire:hover {
     opacity: 0.9;
     transform: translateY(-2px);
+}
+@media (min-width: 968px) {
+    .about-julia__inner {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
 }
