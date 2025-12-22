@@ -30,8 +30,8 @@ body {
   // padding: 0 25px;
   font-style: unset;
   margin: auto;
-}
 
+}
 
 .page-container {
   display: flex;
@@ -74,7 +74,7 @@ body {
   }
 
   i {
-    background-color: $light-bg; // يغطي الخط خلف الأيقونة
+    background-color: $light-bg; 
     padding: 0 8px;
     position: relative;
     z-index: 2;
@@ -184,8 +184,6 @@ $num : 3.5rem;
 img {
   object-fit: contain;
 }
-
-
 
 .eye-icon {
   position: absolute;

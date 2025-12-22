@@ -5,9 +5,11 @@ $color: $Second-Color;
 .footer {
   background-color: $First-Color;
   color: #fff;
-  padding: 50px 20px 0;
+  padding: 50px 10px 0;
   width: 100vw;
   margin-top: 1rem;
+ 
+  
 
   .footer-container {
     display: flex;
@@ -116,6 +118,7 @@ $color: $Second-Color;
     gap: 10px;
     background-color: #131313;
     color: $Font-Color;
+    width: 100vw;
 
     p {
       margin: 0;
@@ -126,6 +129,7 @@ $color: $Second-Color;
     .policy-link {
 
       text-decoration: underline;
+    
 
       &:hover {
         color: $Second-Color;

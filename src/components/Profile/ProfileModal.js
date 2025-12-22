@@ -7,7 +7,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useBetween } from "use-between";
 import { useNavigate } from "react-router-dom";
- 
+
 
 const ProfileModal = () => {
   const [formData, setFormData] = useState({
@@ -86,7 +86,9 @@ const ProfileModal = () => {
       reader.readAsDataURL(file);
     }
   };
-
+  const handleClose = () => {
+    window.location.reload();
+  }
   const handleSave = async () => {
     setLoading(true);
     try {
@@ -97,6 +99,7 @@ const ProfileModal = () => {
       setUserDetails(res.data.user);
       // handleClose();
       setLoading(false);
+      window.scrollTo(0, 0);
     } catch (err) {
 
       setError(err.response?.data?.message)
@@ -104,6 +107,9 @@ const ProfileModal = () => {
     }
 
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
   return (
     // <Modal show={show} onHide={handleClose} className="ProfileModal" centered>
@@ -114,22 +120,22 @@ const ProfileModal = () => {
     //   <Modal.Body>
     <div className="ProfileModal ProfilePage">
       <div className="ProfileHeader">
-      <button className="edit-btn" onClick={() => setIsEditing(!isEditing)} >
-        <i className="fas fa-pen"></i>
-      </button>
-      <button className="delete-btn" onClick={() => setDeleteModal(true)}>
-        <i className="fas fa-trash" style={{ color: 'rgb(243, 98, 98)' }}></i>
-      </button>
+        <button className="edit-btn" onClick={() => setIsEditing(!isEditing)} >
+          <i className="fas fa-pen"></i>
+        </button>
+        <button className="delete-btn" onClick={() => setDeleteModal(true)}>
+          <i className="fas fa-trash" style={{ color: 'rgb(243, 98, 98)' }}></i>
+        </button>
       </div>
       {error != '' && <p className="noti">{error}</p>}
-       <div className="mb-2">
-          {formData.img && (
-        <img
-          src={formData.img}
-          alt="Preview"
-          className="img-preview mt-2"
-        />
-      )}
+      <div className="mb-2">
+        {formData.img && (
+          <img
+            src={formData.img}
+            alt="Preview"
+            className="img-preview mt-2"
+          />
+        )}
         <label>Profile Image</label>
         <input
           type="file"
@@ -139,7 +145,7 @@ const ProfileModal = () => {
           disabled={!isEditing}
         />
       </div>
-    
+
       <div className="mb-2">
         <label>Name</label>
         <input
@@ -199,9 +205,17 @@ const ProfileModal = () => {
             setShowConfirmPassword(!showConfirmPassword)
           }
         ></i>
+        <span className="btns">
+          <Button variant="secondary" onClick={handleClose} className="btn secodary">
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleSave} className="btn primary">
+            Save
+          </Button>
+        </span>
       </div>
 
-     
+
       {/* Delete Account Modal */}
       <Modal show={deleteModal} onHide={() => setDeleteModal(false)} centered>
         <Modal.Header closeButton>

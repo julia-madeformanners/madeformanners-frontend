@@ -19,7 +19,8 @@
     background-color: $Second-Color;
     padding: 10px 40px;
     border-radius: 20px;
-    &:hover{
+
+    &:hover {
       background-color: $First-Color;
       color: #fff;
     }
@@ -153,11 +154,12 @@
       font-size: 1.1rem;
       line-height: 1;
       margin-bottom: 1rem;
-.aboutJulia1{
-      text-decoration: underline;
+
+      .aboutJulia1 {
+        text-decoration: underline;
+      }
     }
-    }
-    
+
 
     .cta-btn {
       background-color: $Second-Color;
@@ -241,6 +243,7 @@
       padding: 24px;
       // background-color: $Second-Color;
       place-items: center;
+
       @media (min-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -256,7 +259,7 @@
         overflow: visible;
         width: 60%;
         height: max-content;
-        margin-top: 40px;
+        margin-top: 20px;
 
         @media (max-width: 900px) {
           width: 100%;

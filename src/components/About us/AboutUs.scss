@@ -2,20 +2,21 @@
 
 .about-julia {
 
-
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin-top: 60px;
+    margin-top: 50px;
+  
 
 
     img {
-        height: max-content;
+        height: 100vh;
         width: 80%;
 
         @media (max-width: 668px) {
             width: 95%;
+            height: 60vh;
         }
     }
 }
@@ -32,7 +33,7 @@
     flex-direction: column;
     gap: 2.5rem;
     font-style: oblique;
-    padding: 6rem 8rem;
+    padding: 6rem 5rem;
     color: $Font-Color;
     background-color: $Second-Color;
 
@@ -95,7 +96,7 @@
 
 .about-julia__text {
     flex: 1 1 50%;
-    margin-top: 15px;
+    margin-top: 0px;
     line-height: 2.2;
     font-size: 1rem;
 }

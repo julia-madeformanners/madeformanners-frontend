@@ -3,6 +3,7 @@ import './CoursesIntroPage.scss'
 import { NavLink } from 'react-router-dom';
 
 const Intro = () => {
+    
      useEffect(() => {
     
         window.scrollTo(0, 0);
@@ -13,7 +14,7 @@ const Intro = () => {
         <div className="intro-container">
             <section className="intro-section">
                 <div className="intro-image right">
-                    <img src="https://media.istockphoto.com/id/1805893169/photo/young-businesswoman-carefully-listening-to-a-colleague.jpg?s=2048x2048&w=is&k=20&c=IbmMG9bVECQ6PIGKoDPAVaGNG-xvkRKj-uyYS_S8igA=" alt="Face to Face Courses" />
+                    <img src="https://media.istockphoto.com/id/576902490/photo/businesswoman-giving-presentation-on-future-plans-to-colleagues.jpg?s=612x612&w=0&k=20&c=JX23C56FdGHJ8GtB5QixGh6f1K4h7ZYjdFN19SMkuGY=" alt="Face to Face Courses" />
                 </div>
                 <div className="intro-text left">
                     <h2>Face-to-Face Courses</h2>

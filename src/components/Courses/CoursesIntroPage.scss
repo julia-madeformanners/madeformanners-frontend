@@ -1,7 +1,7 @@
 @import '../../App.scss';
 
 .intro-container {
-  width: 90%;
+  width: 85%;
   margin: auto;
   margin-top: $top;
   padding: 3rem 0;
@@ -10,6 +10,7 @@
 .intro-section {
   display: flex;
   align-items: center;
+  gap: 15px;
   margin-bottom: 4rem;
 }
 
@@ -31,6 +32,7 @@
 .intro-text {
   flex: 1;
   padding: 2rem;
+
 }
 
 .intro-text h2 {
@@ -40,7 +42,7 @@
 
 .intro-text p {
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.8;
   margin-bottom: 1.5rem;
 }
 
@@ -62,7 +64,7 @@
 .online-steps {
   width: 90%;
   margin: 2rem auto;
-  background: #c0edfd6a;
+  background: $Second-Color;
   padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -70,21 +72,20 @@
   h3 {
     font-size: 1.6rem;
     margin-bottom: 1rem;
-    color: $Second-Color;
+    color: $Font-Color;
     text-align: center;
   }
-
-  ul {}
 
   li {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: $Font-Color;
+
 
     &::before {
       content: "•";
       font-size: 1.4rem;
-      color: $First_Color;
       flex-shrink: 0;
       padding: 10px
     }
@@ -103,5 +104,6 @@
   .intro-text {
     padding: 2rem 0;
     text-align: center;
+    
   }
 }

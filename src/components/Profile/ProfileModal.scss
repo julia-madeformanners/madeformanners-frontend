@@ -17,10 +17,33 @@
     top: $top ;
     margin-top: 20px;
   }
+  
 
   .noti {
     margin: 0.5rem 0;
     text-align: left;
+  }
+
+  .btns {
+    margin-left: 9%;
+
+  }
+
+  .btn {
+    margin-top: 35px;
+    margin-bottom: 25px;
+    width: 40%;
+
+  }
+
+  .btn.primary {
+    margin-left: 30px;
+    background-color: $Second-Color;
+    border: none;
+
+    &:hover {
+      background-color: $First-Color;
+    }
   }
 
   .eye-icon {
@@ -121,4 +144,16 @@
     }
   }
 
+}
+
+@media (max-width: 900px) {
+  .ProfileModal {
+    .ProfileHeader {
+      width: 80%;
+    }
+
+    input {
+      width: 85vw;
+    }
+  }
 }

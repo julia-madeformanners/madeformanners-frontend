@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { useSelector } from 'react-redux';
 import { useBetween } from 'use-between';
-import image from '../../images/img.jpeg';
+import image from '../../images/table.jpg'
 import img1 from '../../images/Youth.png';
 import img2 from '../../images/professional.png';
 import img3 from '../../images/Private.png';
@@ -71,10 +71,10 @@ const Home = () => {
 
       {/* --- 1. Hero Section --- */}
       <div className="video-hero">
-        <video className="video-hero__video" autoPlay loop muted>
-          <source src="" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {/* <img " autoPlay loop muted> */}
+          <img src="" type="video/mp4" className="video-hero__video" />
+          {/* Your browser does not support the img tag. */}
+        {/* </img> */}
 
         <div className="video-hero__overlay">
           <h1>

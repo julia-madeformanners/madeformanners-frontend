@@ -144,7 +144,13 @@ const AboutUs = () => {
       </Helmet>
       <div className="innerContainer">
         <div className="about-julia__inner">
-
+ <div className="about-julia__image-wrap wow animate__animated animate__fadeInRight">
+            <img
+              src={teacherImg}
+              alt="Julia"
+              className="about-julia__image"
+            />
+          </div>
 
           <div className="about-julia__text wow animate__animated animate__fadeInLeft">
             <h2 className="about-julia__title wow animate__animated animate__fadeInDown">
@@ -161,13 +167,7 @@ const AboutUs = () => {
           </div>
 
 
-          <div className="about-julia__image-wrap wow animate__animated animate__fadeInRight">
-            <img
-              src={teacherImg}
-              alt="Julia"
-              className="about-julia__image"
-            />
-          </div>
+          
         </div>
       </div>
 
