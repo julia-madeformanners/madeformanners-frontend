@@ -7,8 +7,9 @@
     height: max-content;
     width: 100vw;
     background: linear-gradient(rgba(139, 139, 139, 0.7), rgba(110, 110, 110, 0.7)),
-        url('../../images/img.jpeg') no-repeat center center;
+        url('../../images/logo.png') no-repeat center center;
     background-size: cover;
+    margin-bottom: -20px;
 
 
     .error {
@@ -19,12 +20,13 @@
         width: 100px;
         height: 5%;
         padding: 5px;
+       
     }
 
     .text-center {
         color: $Font-Color2;
     }
-
+   
     .login-card {
         background: rgba(white, 0.7);
         padding: 2.5rem 3rem;
@@ -117,4 +119,10 @@
 
 }
 
-@media (max-width: 468px) {}
+@media (max-width: 668px) {
+    .login-page {
+      
+           background: linear-gradient(rgba(139, 139, 139, 0.7), rgba(110, 110, 110, 0.7));
+       
+    }
+}

@@ -9,8 +9,6 @@ $color: $Second-Color;
   width: 100vw;
   margin-top: 1rem;
  
-  
-
   .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -32,7 +30,7 @@ $color: $Second-Color;
     }
 
     .footer-section {
-      flex: 1 1 50px;
+      flex: 1 1 30px;
       max-width: 400px;
       text-align: center;
 
@@ -115,14 +113,16 @@ $color: $Second-Color;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+
     background-color: #131313;
     color: $Font-Color;
     width: 100vw;
+    margin-left:-10px ;
 
     p {
       margin: 0;
       font-size: 0.9rem;
+      
 
     }
 

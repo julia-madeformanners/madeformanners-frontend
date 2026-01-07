@@ -1,7 +1,7 @@
 import React from "react";
 import "./PromoVideo.scss";
 import promoVideo from "../../images/welcomeSection.mp4";
-import image from '../../images/table.webp'
+import image from '../../images/table1.jpeg'
 
 const PromoVideo = () => {
   return (

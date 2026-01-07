@@ -5,6 +5,7 @@ import "./ContactUsUser.scss";
 import { useBetween } from "use-between";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
+import image from '../../images/contactUs.jpg'
 
 const countryCodes = [
   { name: "United Kingdom", code: "+44" },
@@ -116,7 +117,7 @@ const ContactUsUser = () => {
     "Have questions or suggestions? Feel free to reach out. We’d love to hear from you!";
 
   return (
-    <div className="contact-us">
+    <div className="contact-us wow animate__animated animate__fadeInUp">
       <Helmet>
         <title>Contact us | {websiteTitle}</title>
         <link rel="canonical" href="https://madeformanners.com/contact" />
@@ -132,7 +133,7 @@ const ContactUsUser = () => {
         <meta property="og:description" content={pageDescription} />
       </Helmet>
 
-      <div className="header">
+      <div className="header ">
         <img
           src="https://cdn-icons-png.flaticon.com/512/295/295128.png"
           alt="Contact Us"

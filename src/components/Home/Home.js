@@ -16,12 +16,23 @@ import img4 from '../../images/online-coach.png';
 import waving from '../../images/waving.gif'
 import introVideo from '../../images/introVideo.mp4';
 import BubbleCard from './BubbleCard';
+import { useLocation } from "react-router-dom";
+
 
 const Home = () => {
   const items = [
     {
-      title: "Youth & Students — Confidence for every stage.",
-      text: "We offer an engaging mix of activities designed to help young people feel at ease in any situation. Our lively half-day and full-day workshops are designed to help build the social intelligence and self-assurance to confidently move through study and early professional experiences. Students will develop leadership, social, communication and table etiquette skills, alongside meaningful relationships in a supportive setting. Our International youth etiquette programmes are tailored to two age groups. Little Society Stars is suited to children aged 8–12 Young Adult Social Mastery is designed for young people aged 13–17",
+      title: "Youth Courses",
+      text: (
+        <div className='text'>
+          At Made for Manners, our ambition is simple: to nurture confidence and courtesy across every generation. We work with both children and young adults, planting the seeds of character, poise, and social intelligence that flourish throughout life.
+          <br />Our lively half-day and full-day workshops, along with our practical dining tutorials, give students the space to develop leadership, social, communication, table etiquette skills and build meaningful relationships in a warm and supportive and safe setting. Whether joining an after-school programme or one of our holiday etiquette camps, young learners enjoy an engaging mix of activities designed to help them feel at ease in any situation.
+          <br /> Our International Youth Etiquette Programmes are thoughtfully tailored to meet the needs of each age group and include:
+          <br /> Little Society Stars (ages 8–12)
+          <br />   Young Adult Social Mastery (ages 13–17)
+          <p className='cardTitle'></p>
+        </div>
+      ),
       img: img1
     },
     // {
@@ -30,10 +41,60 @@ const Home = () => {
     //   img: img2
     // },
     {
-      title: "Social etiquette",
-      text: "Adults of all ages can learn to communicate with improved clarity and confidence. Our approach respects the heritage of traditional etiquette while focusing on skills that remain relevant and genuinely useful today. We offer three signature programmes to support different stages of personal development. The Elegance & Etiquette Mastercourse is a five day immersion devoted to advanced social behaviour and refined interaction. Crafting Your Social Identity is a two day programme centred on communication, confidence and sense of self. Cultural Grace & Global Presence is a three day programme that explores international etiquette and cultural understanding.",
+      title: "Adults Courses",
+      text: (
+        <div className='text'>
+          <p className='cardTitle'>
+            The Elegance & Etiquette Mastercourse - Finishing Touch
+          </p>
+          Made for Manners offers a clear and timeless interpretation of what a finishing school represents. It is a place where adults refine their presence, strengthen their social awareness and develop the confidence that supports them in every aspect of life. Our approach respects the heritage of traditional etiquette while focusing on skills that remain genuinely useful, relevant and gracious in today’s world.
+          <br /> We believe that refinement is an ongoing pursuit. People grow throughout their lives, and there is always room to elevate how we communicate, how we carry ourselves and how we relate to others with ease and authenticity.
+          <br />Our International Finishing School consists of three signature programmers, each designed to guide learners through a different stage of personal and social development.
+          <p className='cardTitle'> The Elegance & Etiquette Master-course</p>
+          A five day immersion devoted to advanced social behaviour, personal polish, confident presence and the principles that shape refined interaction
+          <p className='cardTitle'>  Crafting Your Social Identity</p>
+          A focused two day programme centred on communication, confidence and presenting an authentic, graceful sense of self.
+          <p className='cardTitle'> Cultural Grace & Global Presence</p>
+          A three day programme that explores international etiquette, cultural understanding and the ability to navigate diverse social settings with assurance.
+        </div>
+      ),
       img: img3
     },
+    {
+      title: "Etiquette and Presence Across Cultures",
+      text: (
+        <div className='text'>
+          <p>
+            Made for Manners offers guidance that strengthens confidence, clarity and ease in any social setting. This programme supports you in moving beyond uncertainty so you can set aside the concern of what may or may not be expected and focus fully on the moment at hand. Through the study of etiquette, cultural understanding and refined personal conduct, you learn to carry yourself with assurance, consideration and quiet elegance wherever you go.
+            <br /> Sessions may be arranged as three hour modules, one to three day programmes or bespoke lessons shaped around individual aspirations.</p>
+          A selection of topics includes:
+          <br /> <p className='cardTitle'>Deportment, poise and the art of body language:</p>
+          Understanding how posture, movement and presence communicate confidence and respect.
+          <br />  <p className='cardTitle'> Voice, speech, elocution and public speaking:</p>
+          Developing clarity, tone and expression that support thoughtful and engaging communication.
+          <br /> <p className='cardTitle'> International dining etiquette:</p>
+          Exploring European, Asian and Middle Eastern dining traditions and the cultural values that inform them.
+          <br /> <p className='cardTitle'> Personal image and society dress codes: </p>
+          Choosing attire that reflects the occasion, respects its customs and enhances your own sense of style.
+          <br />  <p className='cardTitle'>Professional presence and cross cultural communication:</p>
+          Cultivating awareness, adaptability and grace in professional and social settings across cultures.
+        </div>
+      ),
+      img: img3
+    },
+    {
+      title: "At a Moment’s Notice",
+      text: (
+        <div className='text'>
+          Made for Manners understands that certain occasions call for assurance rather sooner than one might expect. At a Moment’s Notice offers thoughtful guidance for those who wish to feel prepared for an engagement where confidence, ease and social understanding are required, yet time is in short supply.
+          <br />
+          This concise programme provides focused support shaped around your immediate needs. Even with limited preparation time, you receive clear, practical direction that allows you to step into any setting with composure and quiet confidence. Sessions may be arranged with flexibility to suit both circumstance and location, ensuring assistance is available precisely when it is most beneficial.
+          <br />
+          Topics may include social interaction, dining etiquette, greetings and introductions, personal presentation or any particular area in which swift refinement would be welcome.
+        </div>
+      ),
+      img: img3
+    }
     // {
     //   title: "Private Coaching — Personalised refinement.",
     //   text: "One-to-one sessions designed to enhance posture, presence, and communication in a way that feels natural and authentic.",
@@ -45,6 +106,17 @@ const Home = () => {
     window.scrollTo(0, 0);
     new WOW({ live: false }).init();
   }, []);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
 
   const [showVideo, setShowVideo] = useState(false);
   const state = useSelector((state) => state.data);
@@ -71,10 +143,16 @@ const Home = () => {
 
       {/* --- 1. Hero Section --- */}
       <div className="video-hero">
-        {/* <img " autoPlay loop muted> */}
-          <img src="" type="video/mp4" className="video-hero__video" />
-          {/* Your browser does not support the img tag. */}
-        {/* </img> */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="video-hero__video"
+        >
+          <source src={introVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         <div className="video-hero__overlay">
           <h1>
@@ -95,33 +173,35 @@ const Home = () => {
 
       {/* --- 2. Intro Text + Video --- */}
       <section className="intro wow animate__animated animate__fadeInRight">
-        <div className="recommended">
-          {/* <span className='welcome'> */}
-          <p className="topic welcome">Welcome to Made for Manners </p>
-          <i className='i'>Etiquette Consultancy</i>
+        <div className='text-overlay'>
+          <div className="recommended">
+            {/* <span className='welcome'> */}
+            <p className="topic welcome">Welcome to Made for Manners </p>
+            <i className='i'>Etiquette Consultancy</i>
 
-          {/* </span> */}
-          {/* <div className="line-container">
+            {/* </span> */}
+            {/* <div className="line-container">
             <span className="line"></span> */}
-          {/* <img src={waving} alt="waving " /> */}
-          {/* </div> */}
+            {/* <img src={waving} alt="waving " /> */}
+            {/* </div> */}
 
+          </div>
+          <div className='introCont'>
+            <p>Made for Manners is built on traditional values of integrity and respect.</p>
+            <p>These principles were instilled in founder Julia from childhood
+              <NavLink to="/about" className="aboutJulia1">, About Julia </NavLink></p>
+            <p>Shaped by parents who proudly upheld the highest standards in all aspects of life.</p>
+          </div>
+          {/* <button className="cta-btn" onClick={() => setShowVideo(!showVideo)}>▶ Watch the Video</button> */}
+          {/* {showVideo &&  */}
+          <PromoVideo />
+          {/* } */}
         </div>
-        <div className='introCont'>
-          <p>Made for Manners is built on traditional values of integrity and respect.</p>
-          <p>These principles were instilled in founder Julia from childhood
-            <NavLink to="/about" className="aboutJulia1">, About Julia </NavLink></p>
-          <p>shaped by parents who proudly upheld the highest standards in all aspects of life.</p>
-        </div>
-        {/* <button className="cta-btn" onClick={() => setShowVideo(!showVideo)}>▶ Watch the Video</button> */}
-        {/* {showVideo &&  */}
-        <PromoVideo />
-        {/* } */}
-
       </section>
 
       {/* --- What We Offer --- */}
-      <div className="recommended what-we-offer wow animate__animated animate__fadeIn">
+      <div className="recommended what-we-offer wow animate__animated animate__fadeIn"
+        id="what-we-offer">
         <p className="topic">What we offer</p>
         {/* <div className="line-container">
           <span className="line"></span>
@@ -129,7 +209,7 @@ const Home = () => {
         </div> */}
         <div className="four-bubbles-wrapper">
           {items.map((item, index) => (
-           <BubbleCard key={index} item={item} index={index} />
+            <BubbleCard key={index} item={item} index={index} />
           ))}
         </div>
       </div>
@@ -145,7 +225,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          
+
 
           <div className="identity-card card2">
             <div className="identity-content">
@@ -175,15 +255,15 @@ const Home = () => {
       {/* --- Recommended Section --- */}
       {/* <div className='recommended wow animate__animated animate__fadeInUp'>
         <p className="topic">Recommended Courses</p> */}
-        {/* <div className="line-container">
+      {/* <div className="line-container">
           <span className="line"></span> */}
-        {/* <i className="fas fa-star"></i> */}
-        {/* </div> */}
-        {/* <NavLink className='all-courses' to='/Courses'>all courses</NavLink> */}
-        {/* <div className='noti'>
+      {/* <i className="fas fa-star"></i> */}
+      {/* </div> */}
+      {/* <NavLink className='all-courses' to='/Courses'>all courses</NavLink> */}
+      {/* <div className='noti'>
           Please be advised that once the payment for the course has been completed, cancellations and refunds are not permitted.
         </div> */}
-        {/* <CoursesContaner type="recommended" />
+      {/* <CoursesContaner type="recommended" />
       </div> */}
 
       {/* --- Follow Us Section --- */}

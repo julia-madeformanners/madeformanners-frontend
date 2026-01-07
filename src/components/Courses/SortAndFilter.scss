@@ -26,10 +26,11 @@
 
   .dropdown-menu {
     border-radius: 10px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     padding: 10px;
-    min-width: 220px;
+    min-width: 250px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    
 
     .dropdown-item {
       display: flex;

@@ -143,23 +143,36 @@
 
   // --- Intro Section ---
   .intro {
-
+    position: relative;
+    margin-left: 10px;
     .introCont {
       margin-top: -20px;
+      position: absolute;
+      z-index: 2;
+      width: 90%;
+      top: 51%;
+      left: 50%;
+      padding: 10px;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: $Font-Color;
 
     }
 
-    p {
+    .introCont p {
       color: $First-Color;
-      font-size: 1.1rem;
-      line-height: 1;
+      font-size: 1.3rem;
+      line-height: 3;
       margin-bottom: 1rem;
+      color: $Font-Color;
+      font-style: italic;
+    
+    
 
       .aboutJulia1 {
         text-decoration: underline;
       }
     }
-
 
     .cta-btn {
       background-color: $Second-Color;
@@ -227,7 +240,7 @@
   .recommended.what-we-offer {
     background: linear-gradient(to top,
         $First-Color 0%,
-        #6f3fcf 50%,
+        #4f6588 50%,
         $Second-Color 100%);
 
     padding: 20px;
@@ -241,9 +254,10 @@
       grid-template-columns: 1fr;
       gap: 20px;
       padding: 24px;
+      text-align: center;
       // background-color: $Second-Color;
       place-items: center;
-
+     
       @media (min-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -254,7 +268,7 @@
         border: 2px solid #333;
         border-radius: 40px;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-        text-align: center;
+        
         position: relative;
         overflow: visible;
         width: 60%;
@@ -332,7 +346,7 @@
 }
 
 .card2 {
-  background-image: url('https://www.nafeza2world.com/temp/resized/medium_2025-12-06-a7e8a188f3.jpg');
+  background-image: url('https://media.istockphoto.com/id/1138142697/photo/back-view-of-a-woman-wants-to-ask-a-question-on-a-seminar.jpg?s=612x612&w=0&k=20&c=xUyTYffsOW5cnoG5g_B77SCyqeerw3lIM4Fv8_X9Usk=');
   margin-top: 60px;
 
   .pCard2 {
@@ -370,7 +384,20 @@
 }
 
 /* --- Responsive --- */
-@media (max-width: 900px) {
+@media (max-width: 500px) {
+  .Home {
+    .intro {
+      .introCont {
+        top: 66%;
+        p{
+          line-height: 2
+        }
+
+      }
+      
+    }
+  }
+
   .identity-grid {
     grid-template-columns: 1fr;
   }

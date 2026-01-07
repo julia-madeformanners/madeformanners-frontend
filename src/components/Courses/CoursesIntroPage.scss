@@ -3,15 +3,27 @@
 .intro-container {
   width: 85%;
   margin: auto;
-  margin-top: $top ;
+  margin-top: $top - 2rem;
   padding: 2rem 0;
+  .contaner{
+    margin-top: 5rem;
+  }
+  .cardTitle{
+        font-weight: 500;
+        margin-bottom: -2px;
+      }
+      .text{
+        line-height: 30px;
+        font-size: 1rem;
+      }
+
 }
 
 .intro-section {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 4rem;
+  margin: 2rem 0;
 }
 
 .intro-section.reverse {
@@ -31,7 +43,8 @@
 
 .intro-text {
   flex: 1;
-  padding: 2rem;
+  padding: 2rem 2rem  0;
+
 
 }
 
@@ -40,30 +53,115 @@
   margin-bottom: 1rem;
 }
 
-.intro-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
 
-.intro-btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background-color: $First_Color;
+.intro-container .btn-wrapper1 {
+  margin: 4rem 0;
   color: #fff;
-  text-decoration: none;
+
+  background-color: $First-Color;
+  padding: 10px;
   border-radius: 10px;
-  font-size: 1rem;
-  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  margin-left: auto;
+
+  &:hover{
+    background-color: $Second-Color;
+    cursor: pointer;
+    
+
+  }
 }
 
-.intro-btn:hover {
-  background-color: $Second_Color;
+
+.intro-container .btn-wrapper1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent);
+  animation: shine 2s infinite;
+
 }
+
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+
+  100% {
+    left: 125%;
+  }
+}
+.btnDown{
+
+ 
+    margin-left : 80vw;
+    position: fixed;
+   
+  
+}
+.scroll-down-btn {
+  width: 55px;
+  height: 55px;
+ 
+  border-radius: 50%;
+  background-color: $First-Color;
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  animation: bounce 2s infinite;
+  font-size: 40px;
+
+}
+
+
+.shine-arrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shine 2s infinite;
+}
+
+.scroll-down-btn:hover {
+  background-color: $Second-Color;
+}
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
 
 .online-steps {
   width: 100%;
-  margin: 2rem auto;
+  margin: 6rem auto;
   background: $Second-Color;
   padding: 2rem 1rem;
   border-radius: 20px;
@@ -99,22 +197,21 @@
   .intro-section,
   .intro-section.reverse {
     flex-direction: column;
+    margin:0rem 0;
+  }
+  .intro-text{
+    padding: 2rem 0 0;
   }
 
-  .intro-text {
-    padding: 2rem 0;
-    text-align: center;
-    
-  }
-  .online-steps{
-   
-    margin-top: -40px;
-  }
   .intro-section {
-  gap: 0px;
- 
-}
-.intro-container {
-  padding: 1rem 0;
-}
+    gap: 0px;
+
+  }
+
+  .intro-container {
+    padding: 1rem 0;
+  }
+  .btnDown{
+    margin-left: 70vw;
+  }
 }

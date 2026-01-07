@@ -143,8 +143,132 @@ const AboutUs = () => {
         <meta property="og:description" content={text} />
       </Helmet>
       <div className="innerContainer">
+        <div className="about-julia__intro wow animate__animated animate__fadeInLeft">
+          <h2>The Difference We Make</h2>
+
+          <p>
+            It takes just one person to spark change that echoes through generations.
+            Every small, intentional act of grace contributes to creating a more respectful,
+            confident, and connected society.
+          </p>
+
+          <p>
+            Made for Manners was founded to help individuals of all ages and backgrounds
+            cultivate the social confidence and presence they need to thrive in life and career.
+            We offer a welcoming and mindful environment where learning etiquette becomes a
+            journey of empowerment, not pressure. Our programs are designed to make personal
+            and professional excellence a natural result of thoughtful growth.
+          </p>
+
+          <h2>Opening Doors to the Future You Deserve</h2>
+
+          <p>
+            At Made for Manners, we believe that self-awareness and social understanding unlock
+            every opportunity. Whether you are entering the workplace, advancing your career,
+            or simply wishing to refine your social presence, our bespoke coaching helps you
+            navigate life's formalities with authenticity and ease.
+          </p>
+
+          <p>
+            Our founder, Julia Esanu, trained in London at the Minding Manners International
+            Etiquette and Protocol Academy, where she qualified as an International Social
+            Etiquette Consultant, Savoir Vivre Specialist, and Certified International Youth
+            Etiquette Consultant.
+          </p>
+
+          <p>
+            Her own journey, from moving to England with no experience to thriving as an HR
+            professional across multiple industries, forms the heart of our philosophy. True
+            confidence is earned through growth, humility, and a willingness to learn.
+          </p>
+
+          <h2>Our Distinction</h2>
+
+          <p>
+            Progress often begins with the smallest step, yet confidence can falter when ambitions
+            feel just out of reach. Our courses bridge that gap by offering practical insights
+            grounded in real-world experience.
+          </p>
+
+          <p>
+            We combine expertise in human resources, intercultural communication, and
+            international etiquette to provide a uniquely holistic approach. Every session is
+            guided by three core values: transparency, quality, and personalisation.
+          </p>
+
+          <p>
+            Each client receives bespoke strategies tailored to their unique goals, ensuring
+            progress that feels personal, authentic, and lasting.
+          </p>
+
+          <p>
+            When timing matters, we offer flexible scheduling and private support to meet your
+            needs swiftly and seamlessly.
+          </p>
+
+          <h2>Guiding Young Ambition</h2>
+
+          <p>
+            Tomorrow's leaders begin with today's manners. Our youth programs, developed in
+            consultation with a qualified psychologist, cultivate emotional intelligence, respect,
+            and confidence in a way that feels engaging and age-appropriate.
+          </p>
+
+          <p>
+            Through interactive lessons, children learn the art of modern etiquette and the social
+            awareness that opens doors in education and beyond. Private sessions and tailored
+            approaches are always available to ensure every child learns comfortably, in a way
+            best suited to their personality and pace.
+          </p>
+
+          <h2>Serving Berkshire, Buckinghamshire and Beyond</h2>
+
+          <p>
+            Based in Windsor, Made for Manners brings world-class etiquette training to the local
+            community through in-person and group face-to-face sessions. We understand the
+            distinct needs of regional professionals and families, offering an accessible and
+            dignified approach to personal development.
+          </p>
+
+          <p>
+            We are fully licensed to operate across the UK and Abu Dhabi, delivering the same
+            premium face-to-face etiquette coaching in both locations. Whether you join us in
+            Windsor or Abu Dhabi, you receive personalised guidance tailored to your needs and
+            aspirations.
+          </p>
+
+          <h2>Mission Statement</h2>
+
+          <p>
+            Our mission is to empower individuals of all backgrounds to reach their highest
+            potential through social awareness, confidence, and grace, while fostering a culture
+            of respect that transcends borders, generations, and experiences.
+          </p>
+
+          <h2>Values</h2>
+
+          <p>
+            Transparency: Honest communication and genuine guidance underpin every session.
+            <br />
+            Quality: Every course reflects the highest professional and ethical standards.
+            <br />
+            Personalisation: Each client journey is tailor-made to honour individuality and goals.
+          </p>
+
+          <hr />
+
+          <p>
+            Made for Manners — where confidence begins and character endures.
+          </p>
+
+          <p>
+            Explore our courses:
+            <br />
+            Social Etiquette for Adults | Youth Etiquette for Young Learners
+          </p>
+        </div>
         <div className="about-julia__inner">
- <div className="about-julia__image-wrap wow animate__animated animate__fadeInRight">
+          <div className="about-julia__image-wrap wow animate__animated animate__fadeInRight">
             <img
               src={teacherImg}
               alt="Julia"
@@ -167,7 +291,7 @@ const AboutUs = () => {
           </div>
 
 
-          
+
         </div>
       </div>
 

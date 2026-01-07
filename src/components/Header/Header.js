@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Header.scss';
 import { NavLink, useNavigate } from 'react-router-dom';
-import logo from '../../images/img.jpeg';
+import logo from '../../images/logo.png';
 import { useBetween } from 'use-between';
 import { useSelector } from 'react-redux';
 import { Alert, Dropdown } from 'react-bootstrap';
@@ -153,7 +153,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="Header bg-[#090f39] fixed top-0 left-0 w-full z-50 shadow-md text-xl">
+      <header className="Header bg-[#14243e] fixed top-0 left-0 w-full z-50 shadow-md text-xl">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
 
@@ -198,7 +198,7 @@ const Header = () => {
                 aria-label="Global"
                 className={`${menuOpen ? 'block' : 'hidden'} md:block absolute md:static top-16 left-0 w-full md:w-auto shadow-md md:shadow-none`}
               >
-                <ul className="flex flex-col md:flex-row items-center gap-4 pb-2 bg-[#090f39] ">
+                <ul className="flex flex-col md:flex-row items-center gap-4 pb-2 bg-[#14243e] ">
                   {navItems.map((item) => (
                     <li key={item.id} className='text-[#C0C0C0]'>
                       <NavLink
@@ -213,7 +213,7 @@ const Header = () => {
                   {id === '' ? (
                     <>
                       <NavLink
-                        className="rounded-md bg-[#3b3E79] px-3 py-2 text-[#C0C0C0] shadow-sm"
+                        className="rounded-md bg-[#25354c] px-3 py-2 text-[#C0C0C0] shadow-sm"
                         to="login"
                         onClick={() => setMenuOpen(false)}
                       >
@@ -221,7 +221,7 @@ const Header = () => {
                       </NavLink>
 
                       <NavLink
-                        className="rounded-md bg-[#C0C0C0] px-3 py-2 text-[#3b3E79]"
+                        className="rounded-md bg-[#C0C0C0] px-3 py-2 text-[#25354c]"
                         to="Register"
                         onClick={() => setMenuOpen(false)}
                       >
@@ -230,7 +230,7 @@ const Header = () => {
                     </>
                   ) : (
                     <button
-                      className="rounded-md bg-[#3b3E79] px-3 py-2 text-[#C0C0C0] shadow-sm"
+                      className="rounded-md bg-[#25354c] px-3 py-2 text-[#C0C0C0] shadow-sm"
                       onClick={() => {
                         handelLogOut();
                         setMenuOpen(false);
