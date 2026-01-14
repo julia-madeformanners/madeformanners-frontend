@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import noPhoto from '../../images/noImg.jpg'
+import './CoursesCont.scss'
 import { useLocation } from "react-router-dom";
 
 const CourseModal = () => {
@@ -306,10 +307,10 @@ const CourseModal = () => {
               )}
             </div>
 
-            <div className="checkBox">
+            {/* <div className="checkBox">
               <input type="checkbox" checked={recommended} onChange={handleCheckboxChange} />
               <label className="lable"> Recommended</label>
-            </div>
+            </div> */}
 
           </form>
         </Modal.Body>

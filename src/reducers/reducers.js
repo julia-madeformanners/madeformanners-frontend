@@ -81,10 +81,10 @@ const reminders = (state = [], action) => {
         const [showDetails, setShowDetails] = useState(false);
 
         const categories = [
-            { id: 1, level: 'Social youth etiquette ', icon: '', color: 'green' },
-            { id: 2, level: 'International social etiquette ', icon: '', color: 'pink' },
-            { id: 3, level: 'Private Social youth etiquette ', icon: '', color: 'gold' },
-            { id: 4, level: 'Private International social etiquette', icon: '', color: 'gold' }
+            { id: 1, level: 'Youth Courses', icon: '', color: 'green' },
+            { id: 2, level: 'Social Etiquette', icon: '', color: 'pink' },
+            { id: 3, level: 'Etiquette and Presence Across Cultures', icon: '', color: 'gold' },
+            { id: 4, level: 'At a Moment’s Notice', icon: '', color: 'gold' }
         ]
         const [courseDetails, setCourseDetails] = useState({
             id: '',

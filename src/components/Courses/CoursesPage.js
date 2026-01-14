@@ -39,6 +39,7 @@ const CoursesPage = () => {
  
   return (
     <div className="PageContaner">
+      
       <>
         {/* <div className="recommended">
           <p className="topic">{courseType}s</p>
@@ -52,7 +53,6 @@ const CoursesPage = () => {
           <SortAndFilter />
           <SearchBox />
           <CourseModal />
-
         </div>
 
         <CoursesContaner type="all" />

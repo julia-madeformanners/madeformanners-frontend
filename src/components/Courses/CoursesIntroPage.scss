@@ -5,17 +5,20 @@
   margin: auto;
   margin-top: $top - 2rem;
   padding: 2rem 0;
-  .contaner{
+
+  .contaner {
     margin-top: 5rem;
   }
-  .cardTitle{
-        font-weight: 500;
-        margin-bottom: -2px;
-      }
-      .text{
-        line-height: 30px;
-        font-size: 1rem;
-      }
+
+  .cardTitle {
+    font-weight: 500;
+    margin-bottom: -2px;
+  }
+
+  .text {
+    line-height: 30px;
+    font-size: 1rem;
+  }
 
 }
 
@@ -39,11 +42,12 @@
   width: 100%;
   height: auto;
   border-radius: 20px;
+
 }
 
 .intro-text {
   flex: 1;
-  padding: 2rem 2rem  0;
+  padding: 2rem 2rem 0;
 
 
 }
@@ -53,23 +57,74 @@
   margin-bottom: 1rem;
 }
 
+.section-btns {
+  display: flex;
+  gap: 15px;
+  margin-top: 2rem;
+}
+
+
+.intro-btn {
+  padding: 14px 22px;
+  border-radius: 10px;
+  background-color: $First-Color;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  text-align: center;
+
+  &:hover {
+    background-color: transparent;
+    color: $First-Color;
+    border: 2px solid $First-Color;
+  }
+}
+
+
+.intro-btn.outline {
+  background-color: transparent;
+  color: $First-Color;
+  border: 2px solid $First-Color;
+
+  &:hover {
+    background-color: $First-Color;
+    color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .intro-btn {
+    width: 100%;
+  }
+}
+
 
 .intro-container .btn-wrapper1 {
   margin: 4rem 0;
   color: #fff;
 
   background-color: $First-Color;
-  padding: 10px;
-  border-radius: 10px;
   position: relative;
   overflow: hidden;
   text-align: center;
   margin-left: auto;
+  padding: 20px 10px;
+  border-radius: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 
-  &:hover{
+  &:hover {
     background-color: $Second-Color;
     cursor: pointer;
-    
+
 
   }
 }
@@ -100,18 +155,19 @@
     left: 125%;
   }
 }
-.btnDown{
 
- 
-    margin-left : 80vw;
-    position: fixed;
-   
-  
+.btnDown {
+
+
+  margin-left: 80vw;
+  position: fixed;
+
+
 }
+
 .scroll-down-btn {
   width: 55px;
   height: 55px;
- 
   border-radius: 50%;
   background-color: $First-Color;
   color: #fff;
@@ -123,10 +179,9 @@
   position: relative;
   overflow: hidden;
   animation: bounce 2s infinite;
-  font-size: 40px;
+
 
 }
-
 
 .shine-arrow::before {
   content: "";
@@ -135,12 +190,10 @@
   left: -60%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent);
   animation: shine 2s infinite;
 }
 
@@ -150,14 +203,16 @@
 
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(8px);
   }
 }
-
 
 .online-steps {
   width: 100%;
@@ -166,27 +221,35 @@
   padding: 2rem 1rem;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  color: $Font-Color;
 
   h3 {
     font-size: 1.6rem;
     margin-bottom: 1rem;
-    color: $Font-Color;
+
     text-align: center;
   }
 
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $Font-Color;
+
+
+  .step {
+    text-align: center;
+    margin: 20px auto;
+
+    div {
+      margin-left: 20px;
+    }
+
 
 
     &::before {
       content: "•";
       font-size: 1.4rem;
+      line-height: 1;
+      margin: 15px 5px;
       flex-shrink: 0;
-      padding: 10px
     }
+
   }
 }
 
@@ -197,9 +260,10 @@
   .intro-section,
   .intro-section.reverse {
     flex-direction: column;
-    margin:0rem 0;
+    margin: 0rem 0;
   }
-  .intro-text{
+
+  .intro-text {
     padding: 2rem 0 0;
   }
 
@@ -211,7 +275,8 @@
   .intro-container {
     padding: 1rem 0;
   }
-  .btnDown{
+
+  .btnDown {
     margin-left: 70vw;
   }
 }

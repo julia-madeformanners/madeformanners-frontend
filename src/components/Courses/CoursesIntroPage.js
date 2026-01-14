@@ -3,11 +3,24 @@ import './CoursesIntroPage.scss'
 import { NavLink } from 'react-router-dom';
 import { WOW } from "wowjs";
 import image1 from '../../images/boy.jpg'
-import image2 from '../../images/Adults.jpg'
+import image2 from '../../images/social-etiquette.jpg'
+import image3 from '../../images/Cultures.jpg'
+import image4 from '../../images/clock.jpg'
+import { Helmet } from 'react-helmet';
+import { useBetween } from 'use-between';
+import { useSelector } from 'react-redux';
+import CourseModal from './Modal';
 
 
 const Intro = () => {
     const coursesRef = useRef(null);
+    const state = useSelector((state) => state.data);
+    const {
+        pageDescription,
+        pageKeywords,
+        coursesKeyWords,
+        websiteTitle, }
+        = useBetween(state.useShareState);
 
     useEffect(() => {
         new WOW().init();
@@ -34,7 +47,7 @@ const Intro = () => {
         //   img: img2
         // },
         {
-            title: "Adults Courses",
+            title: "Social Etiquette",
             text: (
                 <div className='text'>
                     <p className='cardTitle'>
@@ -73,7 +86,7 @@ const Intro = () => {
                     Cultivating awareness, adaptability and grace in professional and social settings across cultures.
                 </div>
             ),
-            img: "https://www.invaluable.com/blog/wp-content/uploads/sites/77/2019/06/hero-final-1.jpg"
+            img: image3
         },
         {
             title: "At a Moment’s Notice",
@@ -86,7 +99,7 @@ const Intro = () => {
                     Topics may include social interaction, dining etiquette, greetings and introductions, personal presentation or any particular area in which swift refinement would be welcome.
                 </div>
             ),
-            img: "https://cdn.secureeyepro.com/subwaytravels.com/2023/09/23075139/cultural-etiquette.jpg"
+            img: image4
         }
         // {
         //   title: "Private Coaching — Personalised refinement.",
@@ -97,7 +110,16 @@ const Intro = () => {
 
     return (
         <div className="intro-container">
+            <Helmet>
+                <link rel="canonical" href="https://madeformanners.com/courses" />
+                <title>Courses | {websiteTitle}</title>
+                <meta name="description" content={pageDescription} />
+                <meta name="keywords" content={`${pageKeywords} ${coursesKeyWords} `} />
+                <meta property="og:title" content={`Courses - ${websiteTitle}`} />
+                <meta property="og:description" content={pageDescription} />
+            </Helmet>
             <div className='btnDown'>
+
                 <div className="scroll-down-btn shine-arrow" onClick={() => {
                     coursesRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
                 }}>
@@ -106,30 +128,46 @@ const Intro = () => {
             </div>
             {items.map((item, index) => (
                 <div className='contaner'>
-                <section
-                    key={index}
-                    className={`intro-section ${index % 2 !== 0 ? "reverse wow animate__animated animate__fadeInRight" : " wow animate__animated animate__fadeInLeft"}`}
-                >
+                    <section
+                        key={index}
+                        className={`intro-section ${index % 2 !== 0 ? "reverse wow animate__animated animate__fadeInRight" : " wow animate__animated animate__fadeInLeft"}`}
+                    >
 
 
-                    <div className="intro-image ">
-                        <img src={item.img} alt={item.title} />
-                    </div>
+                        <div className="intro-image ">
+                            <img src={item.img} alt={item.title} />
+                        </div>
 
 
-                    <div className="intro-text ">
-                        <h2>{item.title}</h2>
-                        {item.text}
+                        <div className="intro-text ">
+                            <h2>{item.title}</h2>
+                            {item.text}
+                            <div className="section-btns">
+                                <NavLink
+                                    to="/coursesdetelias"
+                                    className="intro-btn"
+                                    state={{ courseType: item.title, img: item.img }}
+
+                                >
+                                    View the Courses
+                                </NavLink>
+
+                                <NavLink
+                                    to="/contact"
+                                    className="intro-btn outline"
+                                >
+                                    Enquire Now
+                                </NavLink>
+                            </div>
 
 
+                        </div>
 
-                    </div>
-
-                </section>
+                    </section>
                 </div>
 
             ))}
-            <div className="btn-wrapper1" >
+            {/* <div className="btn-wrapper1" >
                 <NavLink
                     to="/coursesdetelias"
                     className="intro-btn "
@@ -137,17 +175,53 @@ const Intro = () => {
                 >
                     View All Courses
                 </NavLink>
-            </div>
+            </div> */}
             <div className="online-steps wow animate__animated animate__fadeInUp">
                 <h3>Course Booking Process</h3>
-                <ul>
-                    <li>Select the course you want to join.</li>
-                    <li>You will be contacted through email within a maximum of 2 days.</li>
-                    <li>We will share all details and confirm your booking.</li>
-                    <li>Payment will be completed online to secure your spot.</li>
-                    <li>You will receive an invoice immediately after the payment.</li>
-                </ul>
-            </div>
+                <div className='stepsCont'>
+                <div className='steps'>
+                    <div className='step'>
+                        <b className='steps-title'>Course Selection </b>
+                        <div>
+
+                            Please select the course you wish to enrol in and submit your enquiry.
+
+                        </div> </div>
+                    <div className='step'>
+                        <b className='steps-title'>Email Correspondence </b>
+                        <div>
+                            Our team will contact you by email within two working days to provide full course details and confirm availability.
+                        </div>
+                    </div>
+                    <div className='step'>
+                        <b className='steps-title'>Provisional Booking </b>
+                        <div>
+                            Upon confirmation of availability, your place will be provisionally reserved and bank transfer payment details will be issued.
+                        </div>
+                    </div>
+                    <div className='step'>
+                        <b className='steps-title'>
+                            Payment by Bank Transfer  </b>
+                        <div>
+                            Payment must be completed via bank transfer using the details provided.
+                            Kindly ensure your full name and course title are included as the payment reference.
+
+                        </div> </div>
+                    <div className='step'>
+                        <b className='steps-title'>Booking Confirmation </b>
+                        <div>
+                            Your place will be secured once payment has been received and verified.
+
+                        </div> </div>
+                    <div className='step'>
+                        <b className='steps-title'>Invoice and Final Confirmation </b>
+                        <div>
+                            An invoice and final confirmation of your booking will be issued by email upon receipt of payment.
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div >
             {/* <section className="intro-section reverse">
                 <div className="intro-image left">
                     <img src="https://media.istockphoto.com/id/1333547908/photo/smiling-woman-have-webcam-online-meeting-on-computer.jpg?s=2048x2048&w=is&k=20&c=2RzcfjnRKoeKSQjIpS-JT3Nw4R_amYO40lXA9huC724=" alt="Online Courses" />
@@ -166,7 +240,7 @@ const Intro = () => {
                     </NavLink>
                 </div>
             </section> */}
-        </div>
+        </div >
     )
 }
 

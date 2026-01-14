@@ -35,6 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit:cover;
 
     video {
       margin-top: 170px;
@@ -116,7 +117,7 @@
   }
 
   section {
-    padding: 0 1rem;
+    padding: 0 ;
     text-align: center;
   }
 
@@ -144,14 +145,14 @@
   // --- Intro Section ---
   .intro {
     position: relative;
-    margin-left: 10px;
+    width: 100vw;
     .introCont {
       margin-top: -20px;
       position: absolute;
       z-index: 2;
       width: 90%;
       top: 51%;
-      left: 50%;
+      left: 51%;
       padding: 10px;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -166,8 +167,6 @@
       margin-bottom: 1rem;
       color: $Font-Color;
       font-style: italic;
-    
-    
 
       .aboutJulia1 {
         text-decoration: underline;
@@ -244,6 +243,8 @@
         $Second-Color 100%);
 
     padding: 20px;
+    width: 50%;
+
 
     .topic {
       color: #fff;
@@ -257,7 +258,7 @@
       text-align: center;
       // background-color: $Second-Color;
       place-items: center;
-     
+
       @media (min-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -268,7 +269,7 @@
         border: 2px solid #333;
         border-radius: 40px;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-        
+
         position: relative;
         overflow: visible;
         width: 60%;
@@ -319,7 +320,7 @@
 
 .identity-section {
   width: 100%;
-  margin-top: -37px;
+  margin: 30px 0;
   background-color: $Second-Color;
 }
 
@@ -383,18 +384,69 @@
   font-size: 15px;
 }
 
+.exploreBtnCont {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 70px 0;
+   position: relative;
+  overflow: hidden;
+
+  .exploreBtn {
+    width: 90vw;
+    background-color: $First-Color;
+    color: #fff;
+    padding: 20px 10px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    &:hover{
+      background-color: $Second-Color;
+    }
+  }
+
+   .exploreBtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent);
+    animation: shine 2s infinite;
+
+  }
+
+
+  @keyframes shine {
+    0% {
+      left: -75%;
+    }
+
+    100% {
+      left: 125%;
+    }
+  }
+
+}
+
 /* --- Responsive --- */
 @media (max-width: 500px) {
   .Home {
     .intro {
       .introCont {
         top: 66%;
-        p{
+
+        p {
           line-height: 2
         }
 
       }
-      
+
     }
   }
 

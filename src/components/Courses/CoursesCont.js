@@ -10,8 +10,8 @@ import CourseDetailsModal from "./CourseDetailsModal";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import BookedUsersModal from "./bookedUserModal";
-
 const CoursesContaner = ({ type = "all" }) => {
+
   const state = useSelector((state) => state.data);
   const {
     courses,
@@ -27,13 +27,11 @@ const CoursesContaner = ({ type = "all" }) => {
     selectedCourse,
     setSelectedCourse,
     serverUrl,
-    pageDescription,
-    pageKeywords,
-    coursesKeyWords,
+    categories,
     websiteTitle,
   } = useBetween(state.useShareState);
   const location = useLocation();
-  const { courseType } = location.state || {}; // 'Face-to-Face' , 'Online'
+  const { courseType, img } = location.state || {};
 
   const [showBookedUsers, setShowBookedUsers] = useState(false);
   const [bookedUsersList, setBookedUsersList] = useState([]);
@@ -108,29 +106,23 @@ const CoursesContaner = ({ type = "all" }) => {
     }
   };
 
-  const playCoursesList = () => {
-    let displayedCourses =
-      type === "recommended"
-        ? courses.filter(
-          (course) =>
-            course.recommended &&
-            (userDetails.email === admin.email ||
-              (course.isNotLive && course.link) ||
-              !course.isNotLive)
-        )
-        : courses.filter(
-          (course) =>
-            userDetails.email === admin.email ||
-            (course.isNotLive && course.link) ||
-            !course.isNotLive
-        );
 
+  const playCoursesList = () => {
+    let displayedCourses = [...courses];
+    console.log("courseType:", courseType);
+
+    displayedCourses.forEach(course => {
+      console.log("categories:", course.categories);
+    });
     if (courseType) {
+      console.log(courseType)
+
       displayedCourses = displayedCourses.filter(
-        (course) =>
-          course.coursePlace === (courseType === "Face-to-Face Course" ? "Face-to-Face Course" : "Online Course")
+        course => course.categories?.includes(courseType)
       );
+
     }
+
 
     if (displayedCourses.length === 0)
       return (
@@ -163,7 +155,7 @@ const CoursesContaner = ({ type = "all" }) => {
           style={{ cursor: "pointer" }}
         >
           <div className="imageWrapper">
-            {item.isNotLive && <i className="notLive">is Not Live </i>}
+            {/* {item.isNotLive && <i className="notLive">is Not Live </i>} */}
             <div className="blurLayer"></div>
             <img src={item.img} alt="Course" />
             <div className="description">
@@ -306,16 +298,6 @@ const CoursesContaner = ({ type = "all" }) => {
 
   return (
     <div className="itemsContaner">
-      {location.pathname === "/courses" && (
-        <Helmet>
-          <link rel="canonical" href="https://madeformanners.com/courses" />
-          <title>Courses | {websiteTitle}</title>
-          <meta name="description" content={pageDescription} />
-          <meta name="keywords" content={`${pageKeywords} ${coursesKeyWords} `} />
-          <meta property="og:title" content={`Courses - ${websiteTitle}`} />
-          <meta property="og:description" content={pageDescription} />
-        </Helmet>
-      )}
 
       <div className="mainContaner">
         {Array.isArray(courses) ? (

@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e4b67124.css",
+    "main.js": "/static/js/main.2d1927f3.js",
+    "static/media/Julia _Video.mp4": "/static/media/Julia _Video.cf9148258561bbd61b99.mp4",
+    "static/media/table.jpg": "/static/media/table.9cb5e23472110f6969df.jpg",
+    "static/media/boy.jpg": "/static/media/boy.ec03c97ce30219b338b6.jpg",
+    "static/media/Cultures.jpg": "/static/media/Cultures.4908a5d8e4e19ca16acf.jpg",
+    "static/media/clock.jpg": "/static/media/clock.6c3711d98833dce69458.jpg",
+    "static/media/social-etiquette.jpg": "/static/media/social-etiquette.48e4aead44aaf51e243e.jpg",
+    "static/media/table1.jpeg": "/static/media/table1.1773756e890be277c58f.jpeg",
+    "static/media/contactUs.jpg": "/static/media/contactUs.862bf810b715a6617adc.jpg",
+    "static/media/waving.gif": "/static/media/waving.8d04ac071030d4eadc84.gif",
+    "static/media/julia_photo.jpeg": "/static/media/julia_photo.42d8f2cdfdbdc0e07f18.jpeg",
+    "static/media/logo.png": "/static/media/logo.f3550ec5773e46221106.png",
+    "static/media/notification.mp3": "/static/media/notification.f30e61ba48ff9a9b2b9b.mp3",
+    "static/media/img.jpeg": "/static/media/img.c3fc8c9f6d8ccc4a4988.jpeg",
+    "static/media/Private.png": "/static/media/Private.0bc1152ec0748b53b3d1.png",
+    "static/media/online-coach.png": "/static/media/online-coach.78d8454831016873dc23.png",
+    "static/media/Youth.png": "/static/media/Youth.896e2c2c177ad30ce9bc.png",
+    "static/media/icon.png": "/static/media/icon.838b2604657754be4cd6.png",
+    "static/media/professional.png": "/static/media/professional.1d28ee0e44022512e5e0.png",
+    "index.html": "/index.html",
+    "main.e4b67124.css.map": "/static/css/main.e4b67124.css.map",
+    "main.2d1927f3.js.map": "/static/js/main.2d1927f3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e4b67124.css",
+    "static/js/main.2d1927f3.js"
+  ]
+}

@@ -14,7 +14,7 @@ import img2 from '../../images/professional.png';
 import img3 from '../../images/Private.png';
 import img4 from '../../images/online-coach.png';
 import waving from '../../images/waving.gif'
-import introVideo from '../../images/introVideo.mp4';
+import introVideo from '../../images/Julia _Video.mp4';
 import BubbleCard from './BubbleCard';
 import { useLocation } from "react-router-dom";
 
@@ -173,46 +173,33 @@ const Home = () => {
 
       {/* --- 2. Intro Text + Video --- */}
       <section className="intro wow animate__animated animate__fadeInRight">
-        <div className='text-overlay'>
-          <div className="recommended">
-            {/* <span className='welcome'> */}
-            <p className="topic welcome">Welcome to Made for Manners </p>
-            <i className='i'>Etiquette Consultancy</i>
 
-            {/* </span> */}
-            {/* <div className="line-container">
+        <div className="recommended">
+          {/* <span className='welcome'> */}
+          <p className="topic welcome">Welcome to Made for Manners </p>
+          <i className='i'>Etiquette Consultancy</i>
+
+          {/* </span> */}
+          {/* <div className="line-container">
             <span className="line"></span> */}
-            {/* <img src={waving} alt="waving " /> */}
-            {/* </div> */}
+          {/* <img src={waving} alt="waving " /> */}
+          {/* </div> */}
 
-          </div>
-          <div className='introCont'>
-            <p>Made for Manners is built on traditional values of integrity and respect.</p>
-            <p>These principles were instilled in founder Julia from childhood
-              <NavLink to="/about" className="aboutJulia1">, About Julia </NavLink></p>
-            <p>Shaped by parents who proudly upheld the highest standards in all aspects of life.</p>
-          </div>
-          {/* <button className="cta-btn" onClick={() => setShowVideo(!showVideo)}>▶ Watch the Video</button> */}
-          {/* {showVideo &&  */}
-          <PromoVideo />
-          {/* } */}
         </div>
+        <div className='introCont'>
+          <p>Made for Manners is built on traditional values of integrity and respect.</p>
+          <p>These principles were instilled in founder Julia from childhood
+            <NavLink to="/about" className="aboutJulia1">, About Julia </NavLink></p>
+          <p>Shaped by parents who proudly upheld the highest standards in all aspects of life.</p>
+        </div>
+        {/* <button className="cta-btn" onClick={() => setShowVideo(!showVideo)}>▶ Watch the Video</button> */}
+        {/* {showVideo &&  */}
+        <PromoVideo />
+        {/* } */}
+
       </section>
 
-      {/* --- What We Offer --- */}
-      <div className="recommended what-we-offer wow animate__animated animate__fadeIn"
-        id="what-we-offer">
-        <p className="topic">What we offer</p>
-        {/* <div className="line-container">
-          <span className="line"></span>
-          <i className="fas fa-gem"></i>
-        </div> */}
-        <div className="four-bubbles-wrapper">
-          {items.map((item, index) => (
-            <BubbleCard key={index} item={item} index={index} />
-          ))}
-        </div>
-      </div>
+
       {/* --- Our Identity Section --- */}
       <section className="identity-section">
         <div className="identity-grid">
@@ -285,6 +272,25 @@ const Home = () => {
         </div>
       </div> 
       */}
+      {/* --- What We Offer --- */}
+      {/* <div className="recommended what-we-offer wow animate__animated animate__fadeIn"
+        id="what-we-offer"> */}
+      {/* <p className="topic">What we offer</p>
+        <div className="line-container">
+          <span className="line"></span>
+          <i className="fas fa-gem"></i>
+        </div>
+        <div className="four-bubbles-wrapper">
+          {items.map((item, index) => (
+            <BubbleCard key={index} item={item} index={index} />
+          ))}
+        </div> */}
+      <div className='exploreBtnCont'>
+        <NavLink to='/courses'>
+          <button className='exploreBtn'>explore our offerings ⟶ </button>
+        </NavLink>
+      </div>
+      {/* </div> */}
     </div>
   );
 };
