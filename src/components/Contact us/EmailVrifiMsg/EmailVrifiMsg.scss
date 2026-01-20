@@ -1,0 +1,31 @@
+@import '../../../App.scss';
+
+.confirm-email-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f3e5d3, $Second-Color);
+  font-family: Arial, sans-serif;
+
+  .confirm-email-card {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    max-width: 500px;
+    text-align: center;
+
+    h1 {
+      font-size: 2.2rem;
+      color: $Second-Color;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+  }
+}

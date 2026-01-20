@@ -9,7 +9,7 @@ import CoursesPage from "./components/Courses/CoursesPage";
 import Profile from "./components/Profile/Profile";
 import SuccessPayment from "./components/Courses/SuccessPayment";
 import Loading from "./components/Loading/Loading";
-import AboutUs from "./components/About us/AboutUs";
+import AboutUs from "./components/Aboutus/AboutUs";
 import ContactUs from "./components/Contact us/ContactUs";
 import Footer from "./components/Footer/Footer";
 import PaymentFailedPage from "./components/Courses/CanceledPayment";
@@ -18,6 +18,7 @@ import ForgotPassword from "./components/LogIn/ForgotPassword";
 import ResetPassword from "./components/LogIn/resetPassword";
 import Intro from "./components/Courses/CoursesIntroPage";
 import ProfileModal from "./components/Profile/ProfileModal";
+import ConfirmEmail from "./components/Contact us/EmailVrifiMsg/EmailVrifiMsg";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
             <Route path="/" element={<Navigate replace to='/home' />} />
             <Route path="/home" element={<Home />} />
             <Route path="/courses" element={<Intro />} />
-             <Route path="/coursesdetelias" element={<CoursesPage />} />
+             <Route path="/ConfirmEmail" element={<ConfirmEmail />} />
+             <Route path="/coursesdetails" element={<CoursesPage />} />
             {/* <Route path="/Intro" element ={<Intro/>}/> */}
             <Route path="/videoCall/:courseId" element={<VideoCall />} />
             <Route path="/login" element={<LoginPage />} />

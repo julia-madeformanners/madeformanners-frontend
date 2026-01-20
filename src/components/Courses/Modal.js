@@ -8,10 +8,11 @@ import axios from "axios";
 import noPhoto from '../../images/noImg.jpg'
 import './CoursesCont.scss'
 import { useLocation } from "react-router-dom";
+import imageCompression from "browser-image-compression";
 
 const CourseModal = () => {
   const location = useLocation();
-  const { courseType } = location.state || {}; // 'Face-to-Face' , 'Online'
+  const { courseType } = location.state || {};
 
   const state = useSelector((state) => state.data);
 
@@ -40,6 +41,7 @@ const CourseModal = () => {
     name,
     description,
     date,
+    dateEnd,
     time,
     endtime,
     img,
@@ -56,6 +58,7 @@ const CourseModal = () => {
       name: '',
       description: '',
       date: '',
+      dateEnd: '',
       time: '',
       endtime: '',
       coursePlace: '',
@@ -67,7 +70,7 @@ const CourseModal = () => {
       categories: [],
       bookedUsers: [],
       joinedUsers: [],
-      
+
     });
     setError(false);
     setTimeError(false);
@@ -77,23 +80,35 @@ const CourseModal = () => {
     const file = e.target.files[0];
     if (!file) return;
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "react_upload"); 
-    formData.append("cloud_name", "diurythny");       
-
     try {
+
+      const compressedFile = await imageCompression(file, {
+        maxSizeMB: 0.7,
+        maxWidthOrHeight: 1000,
+        fileType: "image/jpeg",
+        useWebWorker: true,
+      });
+
+      const formData = new FormData();
+      formData.append("file", compressedFile);
+      formData.append("upload_preset", "react_upload");
+      formData.append("cloud_name", "diurythny");
+
       const res = await axios.post(
-        `https://api.cloudinary.com/v1_1/diurythny/image/upload`,
+        "https://api.cloudinary.com/v1_1/diurythny/image/upload",
         formData
       );
-      setCourseDetails((prev) => ({ ...prev, img: res.data.secure_url }));
+
+      setCourseDetails((prev) => ({
+        ...prev,
+        img: res.data.secure_url,
+      }));
+
     } catch (err) {
-      console.error("Error uploading image to Cloudinary", err);
+      console.error("Error uploading image", err);
       alert("Failed to upload image");
     }
   };
-
   const handleDeleteImage = () => {
     setCourseDetails(prev => ({ ...prev, img: null }));
   };
@@ -142,7 +157,7 @@ const CourseModal = () => {
     }
     setDateError(false);
 
-    if (!name || !description || !price || !date || !time || !endtime || selectedCategories.length === 0) {
+    if (!name || !date || selectedCategories.length === 0) {
       setError(true);
       if (errorRef.current) errorRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
@@ -239,18 +254,19 @@ const CourseModal = () => {
               <input type="text" name="name" value={name} onChange={handleChange} placeholder="Enter name" required />
             </div>
 
-            <div>
+            {/* <div>
               <label className="lable">Course Price <span className="required">*</span></label>
               <input type="number" name="price" value={price} onChange={handleChange} placeholder="Course Price" required />
-            </div>
+            </div> */}
             <div>
-              <label className="lable">Course Description <span className="required">*</span></label>
+              <label className="lable">Course Description </label>
               <textarea name="description" value={description} onChange={handleChange} placeholder="Enter description" rows="3" required></textarea>
             </div>
 
             <div>
               <label className="lable">Course Date <span className="required">*</span></label>
               {dateError && <p className="error">Date cannot be earlier than today</p>}
+              <p>from</p>
               <input
                 type="date"
                 name="date"
@@ -261,10 +277,21 @@ const CourseModal = () => {
                 }}
                 className="form-control mb-2"
               />
+              <p>to</p>
+              <input
+                type="date"
+                name="dateEnd"
+                value={dateEnd}
+                onChange={(e) => {
+                  setCourseDetails(prev => ({ ...prev, dateEnd: e.target.value }));
+                  setDateError(false);
+                }}
+                className="form-control mb-2"
+              />
             </div>
 
             <div>
-              <label className="lable">Course Time <span className="required">*</span></label>
+              <label className="lable">Course Time </label>
               {timeError && <p className="error">End time must be later than start time</p>}
               <p>from</p>
               <input type="time" name="time" value={time || ""} onChange={(e) => {

@@ -21,6 +21,7 @@ const CoursesPage = () => {
       name: '',
       description: '',
       date: '',
+      dateEnd: '',
       time: '',
       endtime: '',
       price: Number,
@@ -36,10 +37,10 @@ const CoursesPage = () => {
     })
     window.scrollTo(0, 0);
   }, [])
- 
+
   return (
     <div className="PageContaner">
-      
+
       <>
         {/* <div className="recommended">
           <p className="topic">{courseType}s</p>
@@ -47,7 +48,7 @@ const CoursesPage = () => {
             <span className="line"></span>
             <i className="fas fa-play-circle"></i>
           </div> */}
-          {/* <div className='noti'>Please be advised that once the payment for the course has been completed, cancellations and refunds are not permitted.</div> */}
+        {/* <div className='noti'>Please be advised that once the payment for the course has been completed, cancellations and refunds are not permitted.</div> */}
         {/* </div> */}
         <div className="row1">
           <SortAndFilter />

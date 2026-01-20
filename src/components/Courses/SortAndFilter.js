@@ -67,14 +67,34 @@ const SortAndFilter = () => {
 
         }
 
-        if (startDate) {
-            const start = new Date(startDate);
-            filtered = filtered.filter(course => new Date(course.date) >= start);
-        }
+        if (startDate || endDate) {
+            const selectedStart = startDate ? new Date(startDate) : null;
+            const selectedEnd = endDate ? new Date(endDate) : null;
 
-        if (endDate) {
-            const end = new Date(endDate);
-            filtered = filtered.filter(course => new Date(course.date) <= end);
+            filtered = filtered.filter(course => {
+                const courseStart = new Date(course.date);
+                const courseEnd = course.dateEnd
+                    ? new Date(course.dateEnd)
+                    : courseStart;
+
+                if (selectedStart && !selectedEnd) {
+                    // أول ما يختار startDate
+                    return courseEnd >= selectedStart;
+                }
+
+                if (!selectedStart && selectedEnd) {
+                    return courseStart <= selectedEnd;
+                }
+
+                if (selectedStart && selectedEnd) {
+                    return (
+                        courseStart <= selectedEnd &&
+                        courseEnd >= selectedStart
+                    );
+                }
+
+                return true;
+            });
         }
 
         const [minPrice, maxPrice] = priceRange;

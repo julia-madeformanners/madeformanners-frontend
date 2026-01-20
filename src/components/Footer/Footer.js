@@ -12,10 +12,10 @@ const Footer = () => {
         <div className="line"></div>
         <div className="footer-section about-section">
           <p>
-            We offer etiquette support for all ages, guided by an experienced instructor. Operating from Windsor and Abu Dhabi, we guide families and professionals committed to advancing in life and career.
+            We offer etiquette support for all ages, guided by an experienced instructor. Operating from Windsor and UAE, we guide families and professionals committed to advancing in life and career.
             Certified at Minding Manners International Etiquette and Protocol Academy.
           </p>
-       
+
         </div>
         <div className="line"></div>
 
@@ -23,6 +23,14 @@ const Footer = () => {
 
           <span><i className="fas fa-envelope"></i><p> <a href="mailto:hello@madeformanners.com">hello@madeformanners.com</a></p></span>
           <span><i className="fas fa-globe"></i><p><a href="https://madeformanners.com/home" target="_blank" rel="noopener noreferrer">madeformanners.com</a></p></span>
+          <span>
+            <i className="fas fa-phone"></i>
+            <p>
+              <a href="tel:+447415891605">
+                +447415891605
+              </a>
+            </p>
+          </span>
         </div>
 
       </div>
@@ -38,14 +46,14 @@ const Footer = () => {
         </div>
         <p>© {new Date().getFullYear()} Made for Manners. All rights reserved.</p>
       </div>
-
+  
       {/* Footer Bottom */}
       <div className="footer-bottom">
-
         <NavLink to="/policy" className="policy-link">
           Policies & Terms
         </NavLink>
       </div>
+
     </footer>
   );
 };

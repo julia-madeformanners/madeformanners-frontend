@@ -109,13 +109,11 @@ const CoursesContaner = ({ type = "all" }) => {
 
   const playCoursesList = () => {
     let displayedCourses = [...courses];
-    console.log("courseType:", courseType);
 
     displayedCourses.forEach(course => {
-      console.log("categories:", course.categories);
+
     });
     if (courseType) {
-      console.log(courseType)
 
       displayedCourses = displayedCourses.filter(
         course => course.categories?.includes(courseType)
@@ -187,8 +185,6 @@ const CoursesContaner = ({ type = "all" }) => {
                 ) : <div className=" cost hiddenPrice">***</div>}
 
               </div>
-
-              {/* } */}
               {userDetails.email === admin.email && type !== "recommended" && (
                 <div className="icons" onClick={(e) => e.stopPropagation()}>
                   <i
@@ -214,13 +210,17 @@ const CoursesContaner = ({ type = "all" }) => {
 
             <div className="date">
               <span>
-                <i className="fas fa-calendar-alt"></i> {item.date}
-              </span>
-              <span>
-                <i className="fas fa-clock"></i> ({item.time}) - ({item.endtime})
+                <i className="fas fa-calendar-alt"></i>  ({item.date}) -({item.dateEnd})
               </span>
 
+
             </div>
+            <div className="date">
+              <span>
+                <i className="fas fa-clock"></i> ({item.time})-({item.endtime})   US Time
+              </span>
+            </div>
+
             <p className="Categories">
               <strong>Course Categories: </strong>
               <span className="categoriesText">{item.categories.join(', ')}</span>
@@ -279,7 +279,7 @@ const CoursesContaner = ({ type = "all" }) => {
                 window.location.href = "mailto:hello@madeformanners.com";
               }}
             >
-              Inquery
+              Enquire today
             </button>
             )}
           </div>

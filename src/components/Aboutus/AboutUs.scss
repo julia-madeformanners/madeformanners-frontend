@@ -1,0 +1,420 @@
+@import "../../App.scss";
+
+
+/* ================= Main Wrapper ================= */
+
+.about-julia {
+
+
+    padding: $top+1rem 0;
+    background: linear-gradient(rgba(139, 139, 139, 0.7), rgba(110, 110, 110, 0.7));
+
+    .innerContainer {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .about-us-into {
+
+        line-height: 40px;
+        font-size: 18px;
+        font-style: italic;
+
+    }
+
+
+}
+
+/* ================= Intro Section ================= */
+.identity-section {
+    width: 100%;
+    margin: 30px 0;
+    background-color: $Second-Color;
+}
+
+.identity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.identity-card {
+    background-size: cover;
+    background-position: center;
+    height: 420px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+
+}
+
+.card1 {
+
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20221007/pngtree-successful-business-meeting-etiquette-handshakes-congratulatory-gestures-and-mergeracquisition-concept-photo-image_48970840.jpg');
+}
+
+.card2 {
+    background-image: url('https://media.istockphoto.com/id/1138142697/photo/back-view-of-a-woman-wants-to-ask-a-question-on-a-seminar.jpg?s=612x612&w=0&k=20&c=xUyTYffsOW5cnoG5g_B77SCyqeerw3lIM4Fv8_X9Usk=');
+    margin-top: 60px;
+
+    .pCard2 {
+        text-align: left;
+    }
+}
+
+.card3 {
+
+    background-image: url('https://ar.lpcentre.com/_next/image?url=https%3A%2F%2Far-backend.lpcentre.com%2F%2Farticle_header_image%252FEtiquette%2520Skills%25202_1653337701.jpg&w=1200&q=75');
+}
+
+.identity-content {
+    background: rgba(255, 255, 255, 0.83);
+    border-radius: 1px;
+    padding: 20px;
+    max-width: 90%;
+    backdrop-filter: blur(4px);
+    background-color: $First-Color;
+    color: $Font-Color;
+    margin-left: 20px;
+
+
+}
+
+.identity-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.identity-content p {
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+@media (max-width: 992px) {
+    .identity-grid {
+        grid-template-columns: repeat(2, 1fr); // صفين بدل 3 أعمدة
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .identity-grid {
+        grid-template-columns: 1fr; // كل عنصر صف كامل
+        gap: 15px;
+    }
+}
+
+
+.about-julia__intro {
+
+
+    margin: 0 auto;
+
+    .second-section {
+        width: 100%;
+        .second-section-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+
+            @media (max-width: 992px) {
+                flex-direction: column; 
+            }
+
+            .text-half {
+                flex: 1;
+                color: #333;
+
+                h2 {
+                    font-size: 2rem;
+                    margin-bottom: 1rem;
+                    color: $Font-Color2;
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.8;
+                    margin-bottom: 1.5rem;
+                }
+            }
+
+            .image-half {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+
+                img {
+                    width: 100%;
+                    height: 106vh;
+                    margin-top: 70px;
+                    
+                    border-radius: 16px;
+                    object-fit: cover;
+                      @media (max-width: 992px) {
+                        width: 100%;
+                    height: 40vh;
+                    margin-top: 0px;
+                      }
+
+                }
+            }
+        }
+    }
+
+
+    .about-us-intro-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        // align-items: center;
+        margin-bottom: 2rem;
+
+
+        .about-us-intro-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+
+            .about-us-intro-img img {
+                width: 100%;
+                height: 100%;
+                border-radius: 16px;
+                // box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            .about-us-intro-images {
+                flex-direction: column;
+            }
+        }
+    }
+
+
+
+    p {
+        background: #ffffff;
+        line-height: 2;
+        padding: 1.5rem 1.8rem;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+
+        font-size: 17px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .about-us-into p {
+
+        padding: 2.3rem 1.8rem;
+        border-radius: 16px;
+        line-height: 3.9;
+
+        // margin-top: 25px;
+        @media (max-width: 992px) {
+            line-height: 2.5;
+        }
+
+    }
+
+    h2 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 2.5rem 0 1.2rem;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: $Font-Color2;
+
+        .icon {
+            color: $First-Color;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+/* ================= Button ================= */
+
+.btn-enquire {
+    margin-top: 2rem;
+    padding: 14px 26px;
+    border-radius: 12px;
+    background-color: $First-Color;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+
+    i {
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        background-color: $Second-Color;
+
+        i {
+            transform: translateX(6px);
+        }
+    }
+}
+
+/* ================= Julia Section ================= */
+
+.about-julia__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 5rem;
+    font-size: 20px;
+    // background-color: $First-Color;
+    color: #fff;
+
+    border-radius: 20px;
+
+
+}
+
+.about-julia__image-wrap {
+    flex: 1;
+    text-align: center;
+}
+
+.about-julia__image {
+    width: 80%;
+    border-radius: 22px;
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.12);
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+.about-julia__image-wrap:hover .about-julia__image {
+    transform: scale(1.04) rotate(-0.5deg);
+    box-shadow: 0 35px 75px rgba(0, 0, 0, 0.18);
+}
+
+.about-julia__text {
+    flex: 1;
+    max-width: 520px;
+    font-style: italic;
+    color: #ffff;
+
+    p {
+        line-height: 2.5;
+        margin-bottom: 1.2rem;
+
+    }
+}
+
+.about-julia__title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+
+
+    .icon {
+        color: $First-Color;
+        font-size: 1.7rem;
+    }
+}
+
+.about-julia__signature {
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.about-julia__role {
+    font-size: 0.9rem;
+
+    letter-spacing: 0.05em;
+}
+
+/* ================= Bottom CTA ================= */
+
+.about-julia__bottom {
+    width: 100%;
+    max-width: 1100px;
+    margin: 6rem auto 0;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, $First-Color, $Second-Color);
+    color: #fff;
+    text-align: center;
+    border-radius: 30px;
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+
+    p {
+        margin: 0.4rem 0;
+        opacity: 0.95;
+    }
+
+    .btn-enquire {
+        margin-top: 2rem;
+        background: #fff;
+        color: $First-Color;
+
+        &:hover {
+            background: #f2f2f2;
+        }
+    }
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 992px) {
+
+    .about-julia__inner {
+
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-julia__title {
+        justify-content: center;
+    }
+
+    .about-julia__text {
+        margin: 0 auto;
+    }
+
+    .about-julia__image {
+        width: 100%;
+
+    }
+
+    .about-julia__bottom {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+
+
+    .about-julia__intro h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -156,11 +156,11 @@ const Home = () => {
 
         <div className="video-hero__overlay">
           <h1>
-            The Modern Art of Grace.<br /><br />
-            <h2>Be the change that inspires your generation</h2>
+            MADE FOR MANNERS<br /><br />
+            <h2>Etiquette shared in person. Because how we behave matters.</h2>
             <span
-            ><i>Shape your life and the world around you</i><br /><br />
-              <i>Lead by example through all stages of life</i><br />
+            ><i>In person etiquette courses centred on behaviour, confidence, and real human connection.</i><br /><br />
+              {/* <i>Lead by example through all stages of life</i><br /> */}
 
             </span>
           </h1>
@@ -187,21 +187,56 @@ const Home = () => {
 
         </div>
         <div className='introCont'>
-          <p>Made for Manners is built on traditional values of integrity and respect.</p>
-          <p>These principles were instilled in founder Julia from childhood
-            <NavLink to="/about" className="aboutJulia1">, About Julia </NavLink></p>
-          <p>Shaped by parents who proudly upheld the highest standards in all aspects of life.</p>
+          <p>In person, with care :
+
+            At Made for Manners, etiquette is shared through care, guidance, and genuine interaction. Learning is thoughtful and practical, combining clear insight with exercises that help individuals of all ages apply what they learn with confidence.
+            Face-to-face courses create a supportive and engaging environment where participants can practise, observe, and grow. Whether learning alongside others or through individual courses, the focus is on building awareness, assurance, and ease in everyday situations.</p>
+          <p>
+            Why it matters : People want to feel confident, capable, and comfortable in the world — at work, at home, socially, and within their families. Behaviour and etiquette support this.
+            They influence how we are perceived, how we connect with others, and how we make people feel. This is not about perfection or rigid rules, but about personal growth and consideration for others.
+          </p>
+          {/* <p>Shaped by parents who proudly upheld the highest standards in all aspects of life.</p> */}
         </div>
         {/* <button className="cta-btn" onClick={() => setShowVideo(!showVideo)}>▶ Watch the Video</button> */}
         {/* {showVideo &&  */}
-        <PromoVideo />
+        {/* <PromoVideo /> */}
         {/* } */}
 
       </section>
+      {/* --- In-Person Courses Section --- */}
+      {/* --- In-Person Courses Section --- */}
+      <section className="in-person-courses wow animate__animated animate__fadeInUp">
+        <div className="container">
+         
 
+          <div className="course-details">
+          
+            <h3>Who we cater for</h3>
+            <p>
+              We work with children, families, individuals, and professionals who value personal development and understand the importance of respectful behaviour and a confident presence.
+              Courses are available in small groups or on a one-to-one basis, allowing information to be shared in a way that suits the individual and the setting, while remaining structured, supportive, and considered.
+            </p>
+
+            <h3>More than “good manners”</h3>
+            <p>
+              Etiquette is not a performance; it becomes part of who you are. It supports confidence, strengthens relationships, and allows people to move through social and professional settings with ease.
+              It encourages clear communication, thoughtful behaviour, and quiet confidence — qualities that serve individuals well at every stage of life.
+            </p>
+
+            <h3>Begin with a conversation</h3>
+            <p>
+              If you would like to explore an in person etiquette course and feel this approach aligns with your values, I would be pleased to speak with you.
+            </p>
+
+            <p>
+              All courses are delivered in person by arrangement.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* --- Our Identity Section --- */}
-      <section className="identity-section">
+      {/* <section className="identity-section">
         <div className="identity-grid">
 
           <div className="identity-card card1">
@@ -237,7 +272,7 @@ const Home = () => {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* --- Recommended Section --- */}
       {/* <div className='recommended wow animate__animated animate__fadeInUp'>

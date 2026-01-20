@@ -144,7 +144,7 @@ const Intro = () => {
                             {item.text}
                             <div className="section-btns">
                                 <NavLink
-                                    to="/coursesdetelias"
+                                    to="/coursesdetails"
                                     className="intro-btn"
                                     state={{ courseType: item.title, img: item.img }}
 
@@ -169,23 +169,21 @@ const Intro = () => {
             ))}
             {/* <div className="btn-wrapper1" >
                 <NavLink
-                    to="/coursesdetelias"
+                    to="/coursesdetails"
                     className="intro-btn "
                     ref={coursesRef}
                 >
                     View All Courses
                 </NavLink>
             </div> */}
-            <div className="online-steps wow animate__animated animate__fadeInUp">
+            <div className="online-steps wow animate__animated animate__fadeInUp"   ref={coursesRef}>
                 <h3>Course Booking Process</h3>
                 <div className='stepsCont'>
                 <div className='steps'>
                     <div className='step'>
                         <b className='steps-title'>Course Selection </b>
                         <div>
-
                             Please select the course you wish to enrol in and submit your enquiry.
-
                         </div> </div>
                     <div className='step'>
                         <b className='steps-title'>Email Correspondence </b>
@@ -232,7 +230,7 @@ const Intro = () => {
                         Access all our online courses anytime and from anywhere with flexible
                         schedules and high-quality content.
                     </p>
-                    <NavLink to="/coursesdetelias"
+                    <NavLink to="/coursesdetails"
                         className="intro-btn"
                         state={{ courseType: 'Online Course' }}
                     >

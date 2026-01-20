@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Mail, Phone, MessageCircle } from "lucide-react";
 import "./ContactUsUser.scss";
@@ -6,6 +6,7 @@ import { useBetween } from "use-between";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 import image from '../../images/contactUs.jpg'
+import ReCAPTCHA from "react-google-recaptcha";
 
 const countryCodes = [
   { name: "United Kingdom", code: "+44" },
@@ -30,12 +31,18 @@ const countryCodes = [
   { name: "Philippines", code: "+63" },
 ];
 
+
 const ContactUsUser = () => {
+  const recaptchaRef = useRef();
+
+
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
+
   });
   const [selectedCode, setSelectedCode] = useState("+971");
   const [error, setError] = useState("");
@@ -55,6 +62,7 @@ const ContactUsUser = () => {
     setLoading,
   } = useBetween(state.useShareState);
 
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setError("");
@@ -64,17 +72,22 @@ const ContactUsUser = () => {
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (phone) => /^\d{5,15}$/.test(phone);
 
+  const [recaptchaToken, setRecaptchaToken] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setError("")
     const { name, email, phone, message } = formData;
     const fullPhone = `${selectedCode}${phone}`;
 
     if (!name || !email || !phone || !message) {
-      setError("Please fill all fields *");
+      setError("Please fill all fields ");
       return;
     }
-
+    if (!recaptchaToken) {
+      setError("Please verify that you are not a robot");
+      return;
+    }
     if (!validateEmail(email)) {
       setError("Invalid email address");
       return;
@@ -89,27 +102,34 @@ const ContactUsUser = () => {
       await axios.post(`${serverUrl}/api/contactUs`, {
         ...formData,
         phone: fullPhone,
+        recaptchaToken
+
       });
-     
-        await axios.post(`${serverUrl}/api/notification/contactusAlert`, {
-          ...formData,
-          phone: fullPhone,
-        });
-      
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setSuccess("Your message has been sent successfully!");
+
+      // await axios.post(`${serverUrl}/api/notification/contactusAlert`, {
+      //   ...formData,
+      //   phone: fullPhone,
+
+      // });
+
+
+      setError("Please check your email to verify your message!");
       setLoading(false);
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
-      });
+
 
 
     } catch (err) {
       setError("Failed to send message, please try again.");
       setLoading(false);
+    } finally {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
     }
+
 
   };
 
@@ -123,9 +143,9 @@ const ContactUsUser = () => {
         <link rel="canonical" href="https://madeformanners.com/contact" />
         <meta
           name="description"
-          content="made for manners contact us +447444617264 hello@madeformanners.com "
+          content="made for manners contact us +447415891605 hello@madeformanners.com"
         />
-        <meta
+        <metahandle
           name="keywords"
           content={`${pageKeywords} ${contactUsKeyWords} ${content}`}
         />
@@ -201,6 +221,12 @@ const ContactUsUser = () => {
             value={formData.message}
             onChange={handleChange}
           ></textarea>
+          <div className="recaptcha-container">
+            <ReCAPTCHA
+              sitekey="6LeqgU0sAAAAAGqCaH0j-r9S_mESLoyq5zRmCilV" // put your site key here
+              onChange={(token) => setRecaptchaToken(token)}
+            />
+          </div>
 
           <button type="submit">Send Message</button>
         </form>
@@ -210,19 +236,19 @@ const ContactUsUser = () => {
             <Mail className="icon" />
             <span>hello@madeformanners.com</span>
           </a>
-          {/* <a href="tel:+447444617264">
+          <a href="tel:+447415891605">
             <Phone className="icon" />
-            <span>+44 7444 617264</span>
+            <span>+44 7415 891605</span>
           </a>
           <a
-            href="https://wa.me/447444617264"
+            href="https://wa.me/447415891605"
             target="_blank"
             rel="noopener noreferrer"
           >
             <MessageCircle className="icon" />
             <span>Chat on WhatsApp</span>
-          </a> */}
-           
+          </a>
+
         </div>
       </div>
     </div>

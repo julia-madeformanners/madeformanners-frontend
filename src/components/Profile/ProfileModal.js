@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useBetween } from "use-between";
 import { useNavigate } from "react-router-dom";
+import imageCompression from "browser-image-compression";
 
 
 const ProfileModal = () => {
@@ -39,11 +40,11 @@ const ProfileModal = () => {
         email: email || "",
         password: password || "",
         confirmPassword: password || "",
-        img: img || "",
+        img: img ,
       });
     }
   }, [userDetails]);
-
+console.log(userDetails)
   const handleDelete = async () => {
     try {
       setLoading(true);
@@ -76,14 +77,34 @@ const ProfileModal = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
+
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData((prev) => ({ ...prev, img: reader.result }));
-      };
-      reader.readAsDataURL(file);
+      try {
+
+        const compressedFile = await imageCompression(file, {
+          maxSizeMB: 0.7,
+          maxWidthOrHeight: 1000,
+          fileType: "image/jpeg",
+          useWebWorker: true,
+        });
+        const formData = new FormData();
+        formData.append("file", compressedFile);
+        formData.append("upload_preset", "react_upload");
+        formData.append("cloud_name", "diurythny");
+
+        const res = await axios.post(
+          "https://api.cloudinary.com/v1_1/diurythny/image/upload",
+          formData
+        );
+     
+        setFormData((prev) => ({ ...prev, img: res.data.secure_url }));
+         } catch (err) {
+        console.error("Error uploading image", err);
+        alert("Failed to upload image");
+      }
+     
     }
   };
   const handleClose = () => {

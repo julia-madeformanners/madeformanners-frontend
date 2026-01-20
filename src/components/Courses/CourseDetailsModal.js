@@ -52,8 +52,8 @@ const CourseDetailsModal = ({ show, onClose, course, onBook, userDetails }) => {
                         <p className="booked-label"><i className="fas fa-check"></i> {booked}</p>
                     )}
 
-                    <p><strong>Course Price:</strong> {course.price} $</p>
-                    <p className="mt-3"><strong>Course Date:</strong> {course.date} / {`(${course.time}) - (${course.endtime})`}</p>
+                    {/* <p><strong>Course Price:</strong> {course.price} $</p> */}
+                    <p className="mt-3"><strong>Course Date:</strong> {`(${course.date}) - (${course.dateEnd})`} / {`(${course.time}) - (${course.endtime})`}</p>
                     {/* <p><strong>Registered Users:</strong> {course.bookedUsers.length}</p> */}
                     <p><strong>Course Description:</strong> {course.description}</p>
                     <p><strong>Course Categories:</strong> {course.categories.join(', ')}</p>

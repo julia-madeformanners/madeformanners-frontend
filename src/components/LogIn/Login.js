@@ -3,9 +3,10 @@ import './Login.scss';
 import { useBetween } from 'use-between';
 import { useSelector } from 'react-redux';
 import { useLocation, NavLink, useNavigate } from 'react-router-dom';
-import icon from '../../images/icon.png';
+import icon1 from '../../images/icon.png';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
+import imageCompression from "browser-image-compression";
 
 const LoginPage = () => {
   const state = useSelector((state) => state.data);
@@ -28,10 +29,32 @@ const LoginPage = () => {
   };
 
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
-      setUserDetails(prev => ({ ...prev, img: URL.createObjectURL(file) }));
+      try {
+
+        const compressedFile = await imageCompression(file, {
+          maxSizeMB: 0.7,
+          maxWidthOrHeight: 1000,
+          fileType: "image/jpeg",
+          useWebWorker: true,
+        });
+        const formData = new FormData();
+        formData.append("file", compressedFile);
+        formData.append("upload_preset", "react_upload");
+        formData.append("cloud_name", "diurythny");
+
+        const res = await axios.post(
+          "https://api.cloudinary.com/v1_1/diurythny/image/upload",
+          formData
+        );
+
+        setUserDetails(prev => ({ ...prev, img: res.data.secure_url }));
+      } catch (err) {
+        console.error("Error uploading image", err);
+        alert("Failed to upload image");
+      }
     }
   };
 
@@ -46,7 +69,7 @@ const LoginPage = () => {
     const blob = await response.blob();
     return new File([blob], filename, { type: mimeType });
   };
-  const handleSubmit =  async (e) => {
+  const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
 
@@ -56,16 +79,15 @@ const LoginPage = () => {
       formData.append("email", userDetails.email);
       formData.append("password", userDetails.password);
       formData.append("confirmPassword", userDetails.confirmPassword);
+      formData.append("img", userDetails.img || icon1);
 
-      if (fileInputRef.current?.files[0]) {
-        formData.append("img", fileInputRef.current.files[0]);
-      } else {
-        const defaultImageFile = await urlToFile(icon, "default.png", "image/png");
-        formData.append("img", defaultImageFile);
-      }
-    
+
+
       axios.post(`${serverUrl}/api/users/register`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+
       })
         .then(() => {
 
@@ -88,7 +110,7 @@ const LoginPage = () => {
             img: res.data.img,
             courses: res.data.courses,
             notifications: res.data.notifications,
-            newNotifications : res.data.newNotifications
+            newNotifications: res.data.newNotifications
 
           };
           setUpdatedData(newUser);
@@ -105,8 +127,10 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    setUserDetails({ id: '', name: '', email: '', password: '',
-       confirmPassword: '', img: '', courses: [], notifications: [] , newNotifications:[]});
+    setUserDetails({
+      id: '', name: '', email: '', password: '',
+      confirmPassword: '', img: '', courses: [], notifications: [], newNotifications: []
+    });
     setErorr('');
   }, [location]);
 

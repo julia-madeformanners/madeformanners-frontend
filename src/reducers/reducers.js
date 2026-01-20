@@ -3,14 +3,13 @@ import axios from 'axios';
 
 
 const reminders = (state = [], action) => {
-
     const useShareState = () => {
         const [editOrAdd, setEditOrAdd] = useState('Add')
         const [courses, setCourses] = useState([])
         const [allCourses, setAllCourses] = useState([])
         const [Loading, setLoading] = useState(false);
         const [reload, setReload] = useState(false);
-        // const serverUrl = 'http://localhost:5000'
+        //  const serverUrl = 'http://localhost:5000'
         const serverUrl = 'https://madeformanners-backend.onrender.com'
         // const serverUrl='https://manor-of-manners-backend.onrender.com'
         const courseValid = 'Please note that the course will be available to watch for only one week after the course date'
@@ -50,6 +49,7 @@ const reminders = (state = [], action) => {
             notifications: [],
             newNotifications: []
         });
+        
         const [notifications, setNotifications] = useState(userDetails.notifications);
         const [newNotifications, setnewNotifications] = useState(userDetails.newNotifications);
         //  localStorage.removeItem("userID");
@@ -91,6 +91,7 @@ const reminders = (state = [], action) => {
             name: '',
             description: '',
             date: '',
+            dateEnd:'',
             time: '',
             endtime: '',
             price: Number,
@@ -115,6 +116,7 @@ const reminders = (state = [], action) => {
                     setAllCourses(data)
                     setLoading(false)
                 } catch (error) {
+                    console.error("Load page error:", error);
                     alert(`Error loading the page, please try again`);
                     setLoading(false)
                 }
