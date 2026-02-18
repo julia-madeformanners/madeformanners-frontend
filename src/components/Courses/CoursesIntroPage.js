@@ -34,8 +34,8 @@ const Intro = () => {
                     At Made for Manners, our ambition is simple: to nurture confidence and courtesy across every generation. We work with both children and young adults, planting the seeds of character, poise, and social intelligence that flourish throughout life.
                     <br />Our lively half-day and full-day workshops, along with our practical dining tutorials, give students the space to develop leadership, social, communication, table etiquette skills and build meaningful relationships in a warm and supportive and safe setting. Whether joining an after-school programme or one of our holiday etiquette camps, young learners enjoy an engaging mix of activities designed to help them feel at ease in any situation.
                     <br /> Our International Youth Etiquette Programmes are thoughtfully tailored to meet the needs of each age group and include:
-                    <br /> Little Society Stars (ages 8–12)
-                    <br />   Young Adult Social Mastery (ages 13–17)
+                    <br /> Little Ambassador (ages 7 to 9)
+                    <br /> Just for Teens (age 10 to 17)
                     <p className='cardTitle'></p>
                 </div>
             ),

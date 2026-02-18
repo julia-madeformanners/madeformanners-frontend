@@ -9,6 +9,7 @@ import image from '../../images/contactUs.jpg'
 import ReCAPTCHA from "react-google-recaptcha";
 
 const countryCodes = [
+
   { name: "United Kingdom", code: "+44" },
   { name: "United States", code: "+1" },
   { name: "Canada", code: "+1" },
@@ -29,13 +30,13 @@ const countryCodes = [
   { name: "India", code: "+91" },
   { name: "Pakistan", code: "+92" },
   { name: "Philippines", code: "+63" },
+ 
+
 ];
 
 
 const ContactUsUser = () => {
   const recaptchaRef = useRef();
-
-
 
   const [formData, setFormData] = useState({
     name: "",
@@ -112,13 +113,12 @@ const ContactUsUser = () => {
 
       // });
 
-
       setError("Please check your email to verify your message!");
       setLoading(false);
 
+    }
 
-
-    } catch (err) {
+    catch (err) {
       setError("Failed to send message, please try again.");
       setLoading(false);
     } finally {
@@ -236,23 +236,27 @@ const ContactUsUser = () => {
             <Mail className="icon" />
             <span>hello@madeformanners.com</span>
           </a>
-          <a href="tel:+447415891605">
+           <a href="tel:+447415891605">
             <Phone className="icon" />
             <span>+44 7415 891605</span>
-          </a>
-          <a
+          </a> 
+           <a
             href="https://wa.me/447415891605"
             target="_blank"
             rel="noopener noreferrer"
-          >
-            <MessageCircle className="icon" />
+          > 
+           <MessageCircle className="icon" />
             <span>Chat on WhatsApp</span>
-          </a>
+          </a> 
 
         </div>
+
       </div>
     </div>
   );
 };
 
 export default ContactUsUser;
+
+
+

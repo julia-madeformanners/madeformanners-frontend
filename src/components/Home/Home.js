@@ -149,6 +149,7 @@ const Home = () => {
           muted
           playsInline
           className="video-hero__video"
+          loading="lazy"
         >
           <source src={introVideo} type="video/mp4" />
           Your browser does not support the video tag.
@@ -207,10 +208,10 @@ const Home = () => {
       {/* --- In-Person Courses Section --- */}
       <section className="in-person-courses wow animate__animated animate__fadeInUp">
         <div className="container">
-         
+
 
           <div className="course-details">
-          
+
             <h3>Who we cater for</h3>
             <p>
               We work with children, families, individuals, and professionals who value personal development and understand the importance of respectful behaviour and a confident presence.
@@ -231,6 +232,10 @@ const Home = () => {
             <p>
               All courses are delivered in person by arrangement.
             </p>
+           
+              
+               <NavLink to="/contact"><button className=" enquire2">Enquire Now</button></NavLink>
+         
           </div>
         </div>
       </section>

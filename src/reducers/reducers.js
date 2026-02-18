@@ -108,17 +108,17 @@ const reminders = (state = [], action) => {
         const admin = { email: 'iuliana.esanu28@gmail.com', passport: 'julia12345' };
 
         useEffect(() => {
-            setLoading(true)
+            // setLoading(true)
             const CoursesData = async () => {
                 try {
                     const { data } = await axios.get(`${serverUrl}/api/courses`);
                     setCourses(data);
                     setAllCourses(data)
-                    setLoading(false)
+                    // setLoading(false)
                 } catch (error) {
                     console.error("Load page error:", error);
                     alert(`Error loading the page, please try again`);
-                    setLoading(false)
+                    // setLoading(false)
                 }
             };
 

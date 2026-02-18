@@ -418,3 +418,35 @@
         font-size: 1.5rem;
     }
 }
+
+.julia-extra-images {
+  display: flex;
+  gap: 40px;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.julia-extra-img {
+  width: 250px;
+  height: 200px;
+  object-fit: contain;
+ 
+}
+
+
+/* موبايل */
+@media (max-width: 576px) {
+  .julia-extra-images {
+    flex-direction: column;
+    gap: 20px;
+    
+  }
+  .julia-extra-img.firstimg {
+    height: 88px;
+  }
+
+  
+}

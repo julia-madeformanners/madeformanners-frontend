@@ -9,6 +9,10 @@ import { Helmet } from "react-helmet";
 import teacherImg from "../../images/julia_photo.jpeg";
 import Img1 from "../../images/img.png";
 import Img2 from "../../images/img1.jpg";
+import cert1 from '../../images/cert1.jpeg'
+import cert2 from '../../images/cert2.jpeg'
+import cert3 from '../../images/cert3.PNG'
+
 
 const AboutUs = () => {
   useEffect(() => {
@@ -46,7 +50,7 @@ const AboutUs = () => {
             <div className="about-us-into" data-wow-delay="0.2s">
               <p>
                 Made for Manners is an etiquette consultancy based in Windsor, serving
-                Berkshire, Buckinghamshire, the surrounding areas and UAE. The
+                Berkshire, Buckinghamshire, the surrounding areas . The
                 consultancy works with children, teenagers and adults who wish to
                 feel at ease in social, educational and professional settings through
                 clear, practical guidance in contemporary etiquette.
@@ -56,7 +60,7 @@ const AboutUs = () => {
             {/* RIGHT IMAGES */}
             <div className="about-us-intro-images">
               <div className="about-us-intro-img first-img" data-wow-delay="0.8s">
-                <img src={Img1} alt="First Visual" />
+                <img src={Img1} alt="First Visual" loading="lazy" />
               </div>
 
               {/* <div className="about-us-intro-img second-img" data-wow-delay="1s">
@@ -116,7 +120,7 @@ const AboutUs = () => {
                 </p>
               </div>
               <div className="image-half">
-                <img src={Img2} alt="Visual" />
+                <img src={Img2} alt="Visual" loading="lazy" />
               </div>
             </div>
           </div>
@@ -145,13 +149,17 @@ const AboutUs = () => {
 
             <p>{text}</p>
 
+
             {/* <p className="about-julia__signature">With warmth,</p>
             <p className="about-julia__signature">Julia</p>
             <p className="about-julia__role">
               Founder, Made for Manners
             </p> */}
           </div>
+
+
         </div>
+
       </div>
       {/* --- Our Identity Section --- */}
       <section className="identity-section">
@@ -208,6 +216,18 @@ const AboutUs = () => {
             ENQUIRE NOW <i className="fas fa-envelope"></i>
           </button>
         </NavLink>
+      </div>
+      <div className="julia-extra-images">
+        <div className="safe-zone">
+          <img src={cert1} alt="Etiquette session" className="julia-extra-img firstimg" />
+        </div>
+
+        <div className="safe-zone">
+          <img src={cert2} alt="Etiquette training" className="julia-extra-img " />
+        </div>
+         <div className="safe-zone">
+          <img src={cert3} alt="Etiquette training" className="julia-extra-img " />
+        </div>
       </div>
     </section>
   );
