@@ -25,7 +25,7 @@ function App() {
     <div className="page-container">
       <Router>
         <Header />
-        <Loading />
+       
          <main className="content">
         <Routes>
             <Route path="/" element={<Navigate replace to='/home' />} />

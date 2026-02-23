@@ -53,54 +53,57 @@ const Intro = () => {
                     <p className='cardTitle'>
                         The Elegance & Etiquette Mastercourse - Finishing Touch
                     </p>
-                    Made for Manners offers a clear and timeless interpretation of what a finishing school represents. It is a place where adults refine their presence, strengthen their social awareness and develop the confidence that supports them in every aspect of life. Our approach respects the heritage of traditional etiquette while focusing on skills that remain genuinely useful, relevant and gracious in today’s world.
-                    <br /> We believe that refinement is an ongoing pursuit. People grow throughout their lives, and there is always room to elevate how we communicate, how we carry ourselves and how we relate to others with ease and authenticity.
-                    <br />Our International Finishing School consists of three signature programmers, each designed to guide learners through a different stage of personal and social development.
-                    <p className='cardTitle'> The Elegance & Etiquette Master-course</p>
-                    A five day immersion devoted to advanced social behaviour, personal polish, confident presence and the principles that shape refined interaction
-                    <p className='cardTitle'>  Crafting Your Social Identity</p>
-                    A focused two day programme centred on communication, confidence and presenting an authentic, graceful sense of self.
-                    <p className='cardTitle'> Cultural Grace & Global Presence</p>
-                    A three day programme that explores international etiquette, cultural understanding and the ability to navigate diverse social settings with assurance.
+
+                    {/* <p className='cardTitle'> The Elegance & Etiquette Master-course</p> */}
+                    The Finishing Touch is an immersive, adult finishing‑school style course designed to refine how you present yourself in every aspect of modern life. It is ideal for those who wish to feel composed, polished and at ease in social situations, from intimate gatherings to high‑profile events.
+
+                    <br />
+                    {/* <p className='cardTitle'>  Crafting Your Social Identity</p> */}
+                    During the course you explore the principles of contemporary social etiquette, including introductions, greetings and conversation skills that help you build rapport with confidence and grace. You learn how to host and be hosted with ease, understand the expectations of a courteous guest and cultivate a warm yet refined style of interaction.
+                    <br />
+                    {/* <p className='cardTitle'> Cultural Grace & Global Presence</p> */}
+                    A key focus is international etiquette and cultural awareness, so that you feel prepared to navigate cross‑cultural occasions and global social norms with sensitivity and respect. You also develop your dining savoir‑faire, learning the nuances of formal and informal table settings, service styles and table manners, so that meals become opportunities to shine rather than moments of uncertainty.
+                    <br />
+                    Alongside this, the course addresses posture, poise and body language to help you project calm assurance, as well as personal image and society dress codes so your appearance consistently supports the impression you wish to create. By the end, you leave with a renewed sense of confidence, a clearer understanding of how to move through the world with quiet elegance, and a toolkit of practical skills you can draw on for life.
                 </div>
             ),
             img: image2
         },
-        {
-            title: "Etiquette and Presence Across Cultures",
-            text: (
-                <div className='text'>
-                    <p>
-                        Made for Manners offers guidance that strengthens confidence, clarity and ease in any social setting. This programme supports you in moving beyond uncertainty so you can set aside the concern of what may or may not be expected and focus fully on the moment at hand. Through the study of etiquette, cultural understanding and refined personal conduct, you learn to carry yourself with assurance, consideration and quiet elegance wherever you go.
-                        <br /> Sessions may be arranged as three hour modules, one to three day programmes or bespoke lessons shaped around individual aspirations.</p>
-                    a selection of topics includes:
-                    <br /> <p className='cardTitle'>Deportment, poise and the art of body language:</p>
-                    Understanding how posture, movement and presence communicate confidence and respect.
-                    <br />  <p className='cardTitle'> Voice, speech, elocution and public speaking:</p>
-                    Developing clarity, tone and expression that support thoughtful and engaging communication.
-                    <br /> <p className='cardTitle'> International dining etiquette:</p>
-                    Exploring European, Asian and Middle Eastern dining traditions and the cultural values that inform them.
-                    <br /> <p className='cardTitle'> Personal image and society dress codes: </p>
-                    Choosing attire that reflects the occasion, respects its customs and enhances your own sense of style.
-                    <br />  <p className='cardTitle'>Professional presence and cross cultural communication:</p>
-                    Cultivating awareness, adaptability and grace in professional and social settings across cultures.
-                </div>
-            ),
-            img: image3
-        },
-        {
-            title: "At a Moment’s Notice",
-            text: (
-                <div className='text'>
-                    Made for Manners understands that certain occasions call for assurance rather sooner than one might expect. At a Moment’s Notice offers thoughtful guidance for those who wish to feel prepared for an engagement where confidence, ease and social understanding are required, yet time is in short supply.
-                    <br />
-                    This concise programme provides focused support shaped around your immediate needs. Even with limited preparation time, you receive clear, practical direction that allows you to step into any setting with composure and quiet confidence. Sessions may be arranged with flexibility to suit both circumstance and location, ensuring assistance is available precisely when it is most beneficial.
-                    <br />
-                    Topics may include social interaction, dining etiquette, greetings and introductions, personal presentation or any particular area in which swift refinement would be welcome.
-                </div>
-            ),
-            img: image4
-        }
+        // {
+        //     title: "Etiquette and Presence Across Cultures",
+        //     text: (
+        //         <div className='text'>
+        //             <p>
+        //                 Made for Manners offers guidance that strengthens confidence, clarity and ease in any social setting. This programme supports you in moving beyond uncertainty so you can set aside the concern of what may or may not be expected and focus fully on the moment at hand. Through the study of etiquette, cultural understanding and refined personal conduct, you learn to carry yourself with assurance, consideration and quiet elegance wherever you go.
+        //                 <br /> Sessions may be arranged as three hour modules, one to three day programmes or bespoke lessons shaped around individual aspirations.</p>
+        //             a selection of topics includes:
+        //             <br /> <p className='cardTitle'>Deportment, poise and the art of body language:</p>
+        //             Understanding how posture, movement and presence communicate confidence and respect.
+        //             <br />  <p className='cardTitle'> Voice, speech, elocution and public speaking:</p>
+        //             Developing clarity, tone and expression that support thoughtful and engaging communication.
+        //             <br /> <p className='cardTitle'> International dining etiquette:</p>
+        //             Exploring European, Asian and Middle Eastern dining traditions and the cultural values that inform them.
+        //             <br /> <p className='cardTitle'> Personal image and society dress codes: </p>
+        //             Choosing attire that reflects the occasion, respects its customs and enhances your own sense of style.
+        //             <br />  <p className='cardTitle'>Professional presence and cross cultural communication:</p>
+        //             Cultivating awareness, adaptability and grace in professional and social settings across cultures.
+        //         </div>
+        //     ),
+        //     img: image3
+        // },
+        // {
+        //     title: "At a Moment’s Notice",
+        //     text: (
+        //         <div className='text'>
+        //             Made for Manners understands that certain occasions call for assurance rather sooner than one might expect. At a Moment’s Notice offers thoughtful guidance for those who wish to feel prepared for an engagement where confidence, ease and social understanding are required, yet time is in short supply.
+        //             <br />
+        //             This concise programme provides focused support shaped around your immediate needs. Even with limited preparation time, you receive clear, practical direction that allows you to step into any setting with composure and quiet confidence. Sessions may be arranged with flexibility to suit both circumstance and location, ensuring assistance is available precisely when it is most beneficial.
+        //             <br />
+        //             Topics may include social interaction, dining etiquette, greetings and introductions, personal presentation or any particular area in which swift refinement would be welcome.
+        //         </div>
+        //     ),
+        //     img: image4
+        // }
         // {
         //   title: "Private Coaching — Personalised refinement.",
         //   text: "One-to-one sessions designed to enhance posture, presence, and communication in a way that feels natural and authentic.",
@@ -176,48 +179,48 @@ const Intro = () => {
                     View All Courses
                 </NavLink>
             </div> */}
-            <div className="online-steps wow animate__animated animate__fadeInUp"   ref={coursesRef}>
+            <div className="online-steps wow animate__animated animate__fadeInUp" ref={coursesRef}>
                 <h3>Course Booking Process</h3>
                 <div className='stepsCont'>
-                <div className='steps'>
-                    <div className='step'>
-                        <b className='steps-title'>Course Selection </b>
-                        <div>
-                            Please select the course you wish to enrol in and submit your enquiry.
-                        </div> </div>
-                    <div className='step'>
-                        <b className='steps-title'>Email Correspondence </b>
-                        <div>
-                            Our team will contact you by email within two working days to provide full course details and confirm availability.
+                    <div className='steps'>
+                        <div className='step'>
+                            <b className='steps-title'>Course Selection </b>
+                            <div>
+                                Please select the course you wish to enrol in and submit your enquiry.
+                            </div> </div>
+                        <div className='step'>
+                            <b className='steps-title'>Email Correspondence </b>
+                            <div>
+                                Our team will contact you by email within two working days to provide full course details and confirm availability.
+                            </div>
                         </div>
-                    </div>
-                    <div className='step'>
-                        <b className='steps-title'>Provisional Booking </b>
-                        <div>
-                            Upon confirmation of availability, your place will be provisionally reserved and bank transfer payment details will be issued.
+                        <div className='step'>
+                            <b className='steps-title'>Provisional Booking </b>
+                            <div>
+                                Upon confirmation of availability, your place will be provisionally reserved and bank transfer payment details will be issued.
+                            </div>
                         </div>
-                    </div>
-                    <div className='step'>
-                        <b className='steps-title'>
-                            Payment by Bank Transfer  </b>
-                        <div>
-                            Payment must be completed via bank transfer using the details provided.
-                            Kindly ensure your full name and course title are included as the payment reference.
+                        <div className='step'>
+                            <b className='steps-title'>
+                                Payment by Bank Transfer  </b>
+                            <div>
+                                Payment must be completed via bank transfer using the details provided.
+                                Kindly ensure your full name and course title are included as the payment reference.
 
-                        </div> </div>
-                    <div className='step'>
-                        <b className='steps-title'>Booking Confirmation </b>
-                        <div>
-                            Your place will be secured once payment has been received and verified.
+                            </div> </div>
+                        <div className='step'>
+                            <b className='steps-title'>Booking Confirmation </b>
+                            <div>
+                                Your place will be secured once payment has been received and verified.
 
-                        </div> </div>
-                    <div className='step'>
-                        <b className='steps-title'>Invoice and Final Confirmation </b>
-                        <div>
-                            An invoice and final confirmation of your booking will be issued by email upon receipt of payment.
+                            </div> </div>
+                        <div className='step'>
+                            <b className='steps-title'>Invoice and Final Confirmation </b>
+                            <div>
+                                An invoice and final confirmation of your booking will be issued by email upon receipt of payment.
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div >
             {/* <section className="intro-section reverse">

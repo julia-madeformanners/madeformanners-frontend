@@ -9,7 +9,7 @@ const reminders = (state = [], action) => {
         const [allCourses, setAllCourses] = useState([])
         const [Loading, setLoading] = useState(false);
         const [reload, setReload] = useState(false);
-        //  const serverUrl = 'http://localhost:5000'
+        // const serverUrl = 'http://localhost:5000'
         const serverUrl = 'https://madeformanners-backend.onrender.com'
         // const serverUrl='https://manor-of-manners-backend.onrender.com'
         const courseValid = 'Please note that the course will be available to watch for only one week after the course date'
@@ -49,7 +49,7 @@ const reminders = (state = [], action) => {
             notifications: [],
             newNotifications: []
         });
-        
+
         const [notifications, setNotifications] = useState(userDetails.notifications);
         const [newNotifications, setnewNotifications] = useState(userDetails.newNotifications);
         //  localStorage.removeItem("userID");
@@ -83,18 +83,19 @@ const reminders = (state = [], action) => {
         const categories = [
             { id: 1, level: 'Youth Courses', icon: '', color: 'green' },
             { id: 2, level: 'Social Etiquette', icon: '', color: 'pink' },
-            { id: 3, level: 'Etiquette and Presence Across Cultures', icon: '', color: 'gold' },
-            { id: 4, level: 'At a Moment’s Notice', icon: '', color: 'gold' }
+            // { id: 3, level: 'Etiquette and Presence Across Cultures', icon: '', color: 'gold' },
+            // { id: 4, level: 'At a Moment’s Notice', icon: '', color: 'gold' }
         ]
         const [courseDetails, setCourseDetails] = useState({
             id: '',
             name: '',
             description: '',
             date: '',
-            dateEnd:'',
+            dateEnd: '',
             time: '',
             endtime: '',
             price: Number,
+            Vit: Number,
             recommended: false,
             img: null,
             categories: [],
@@ -108,21 +109,25 @@ const reminders = (state = [], action) => {
         const admin = { email: 'iuliana.esanu28@gmail.com', passport: 'julia12345' };
 
         useEffect(() => {
-            // setLoading(true)
-            const CoursesData = async () => {
-                try {
-                    const { data } = await axios.get(`${serverUrl}/api/courses`);
-                    setCourses(data);
-                    setAllCourses(data)
-                    // setLoading(false)
-                } catch (error) {
-                    console.error("Load page error:", error);
-                    alert(`Error loading the page, please try again`);
-                    // setLoading(false)
-                }
-            };
+           
+            
+                 setLoading(true)
+                const CoursesData = async () => {
+                    try {
+                        const { data } = await axios.get(`${serverUrl}/api/courses`);
+                        setCourses(data);
+                        setAllCourses(data)
+                        setLoading(false)
+                    } catch (error) {
+                        console.error("Load page error:", error);
+                        alert(`Error loading the page, please try again`);
+                        setLoading(false)
+                    }
+                };
 
-            CoursesData();
+                CoursesData();
+
+            
 
         }, [reload, notifications]);
 
@@ -135,6 +140,7 @@ const reminders = (state = [], action) => {
             userDetails, setUserDetails,
             admin,
             courses, setCourses,
+            allCourses, setAllCourses,
             courseDetails, setCourseDetails,
             editOrAdd, setEditOrAdd,
             Loading, setLoading,

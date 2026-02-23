@@ -65,7 +65,7 @@ $shadow-dark: rgba(0, 0, 0, 0.15);
   }
 
   .CourseItem {
-    width: $num;
+    width: $num + 1rem;
     height: calc(#{$num + 14rem});
     background-color: $card-bg;
     border-radius: 20px;
@@ -210,6 +210,7 @@ $shadow-dark: rgba(0, 0, 0, 0.15);
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top: 5px;
 
         .icons i {
           cursor: pointer;
@@ -227,6 +228,7 @@ $shadow-dark: rgba(0, 0, 0, 0.15);
 
       .courseBtn {
         margin-top: auto;
+        margin-bottom: 10px;
         align-self: center;
         width: 100%;
         padding: 10px 0;
@@ -331,6 +333,18 @@ $shadow-dark: rgba(0, 0, 0, 0.15);
   }
 
 }
+.btnsWrapper {
+display: flex;
+gap:10px;
+  margin-top: 10px;
+}
+
+.bookedBtn {
+  background-color: gray !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
 
 @media (max-width: 768px) {
   .mainContaner {
@@ -346,5 +360,37 @@ $shadow-dark: rgba(0, 0, 0, 0.15);
     .row1 {
       padding:  10%;
     }
+  }
+}
+.skeleton {
+  .details{
+    border: none;
+  }
+  pointer-events: none;
+  .img-skeleton {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    background: linear-gradient(-90deg, #eeeeee 0%, #dddddd 50%, #eeeeee 100%);
+    background-size: 400% 400%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  .skeleton-line {
+    height: 15px;
+    margin: 8px 0;
+    border-radius: 8px;
+    background: linear-gradient(-90deg, #eeeeee 0%, #dddddd 50%, #eeeeee 100%);
+    background-size: 400% 400%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }

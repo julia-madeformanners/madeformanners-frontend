@@ -10,6 +10,7 @@ import CourseDetailsModal from "./CourseDetailsModal";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import BookedUsersModal from "./bookedUserModal";
+import Loading from "../Loading/Loading";
 const CoursesContaner = ({ type = "all" }) => {
 
   const state = useSelector((state) => state.data);
@@ -29,6 +30,7 @@ const CoursesContaner = ({ type = "all" }) => {
     serverUrl,
     categories,
     websiteTitle,
+    setCourses
   } = useBetween(state.useShareState);
   const location = useLocation();
   const { courseType, img } = location.state || {};
@@ -51,6 +53,7 @@ const CoursesContaner = ({ type = "all" }) => {
     window.scrollTo(0, 0);
 
   }, []);
+
 
   const openDetails = (course) => {
     setSelectedCourse(course);
@@ -96,6 +99,7 @@ const CoursesContaner = ({ type = "all" }) => {
       const res = await axios.post(`${serverUrl}/api/payments/create-checkout-session`, {
         courseName,
         price,
+
         courseId,
         userName: userDetails.name,
       });
@@ -146,12 +150,14 @@ const CoursesContaner = ({ type = "all" }) => {
 
 
       return (
+
         <div
           className="CourseItem"
           key={item._id || index}
           onClick={() => openDetails(item)}
           style={{ cursor: "pointer" }}
         >
+
           <div className="imageWrapper">
             {/* {item.isNotLive && <i className="notLive">is Not Live </i>} */}
             <div className="blurLayer"></div>
@@ -160,10 +166,10 @@ const CoursesContaner = ({ type = "all" }) => {
               <div className="text">{item.description}</div>
             </div>
 
-            {/* <span
+            {userDetails.email === admin.email && <span
               className="particNum"
               style={{
-                background: userDetails.email === admin.email ? "#3b3E79" : "#ACABAD",
+                background: "#ACABAD",
               }}
               onClick={(e) => {
                 if (userDetails.email === admin.email) {
@@ -173,18 +179,27 @@ const CoursesContaner = ({ type = "all" }) => {
               }}
             >
               <i className="fas fa-user"></i> {uniqueUsers.length - 1}
-            </span> */}
+            </span>
+    }
           </div>
 
           <div className="details">
             <div className="bottomRow">
               {/* {item.coursePlace == "Online Course" &&  */}
               <div className="price">
-                £ {item.coursePlace == "Online Course" ? (
-                  <span className="cost">{item.price}{item.price === 0 && <p>(Free)</p>}</span>
+                £ {item.coursePlace == "Online Course" || item.price != 0 ? (
+                  
+                    <span className="cost">{item.price}{item.price === 0 && <p>(Free)</p>}
+                    
+                      {item.Vit > 0 &&
+
+                        <span className="cost">  + Vit (£ {item.Vit})</span>
+                      }
+                  </span>
                 ) : <div className=" cost hiddenPrice">***</div>}
 
               </div>
+
               {userDetails.email === admin.email && type !== "recommended" && (
                 <div className="icons" onClick={(e) => e.stopPropagation()}>
                   <i
@@ -217,7 +232,7 @@ const CoursesContaner = ({ type = "all" }) => {
             </div>
             <div className="date">
               <span>
-                <i className="fas fa-clock"></i> ({item.time})-({item.endtime})   US Time
+                <i className="fas fa-clock"></i> ({item.time})-({item.endtime})   UK Time
               </span>
             </div>
 
@@ -225,7 +240,7 @@ const CoursesContaner = ({ type = "all" }) => {
               <strong>Course Categories: </strong>
               <span className="categoriesText">{item.categories.join(', ')}</span>
             </p>
-            {item.coursePlace == 'Online Course' ? (
+            {/* {item.coursePlace == 'Online Course' ? (
               isAlreadyBooked || userDetails.email === admin.email ? (
                 <button
                   className="courseBtn"
@@ -281,7 +296,60 @@ const CoursesContaner = ({ type = "all" }) => {
             >
               Enquire today
             </button>
-            )}
+            )} */}
+            <div className="btnsWrapper">
+
+              {/* BOOK BUTTON */}
+              <button
+                className={`courseBtn ${isAlreadyBooked ? "bookedBtn" : ""}`}
+                disabled={isAlreadyBooked}
+                onClick={(e) => {
+                  e.stopPropagation();
+
+                  const now = new Date();
+                  const courseDate = new Date(item.date);
+                  const [endHour, endMinute] = item.endtime.split(":");
+                  const endDateTime = new Date(courseDate);
+                  endDateTime.setHours(parseInt(endHour), parseInt(endMinute), 0, 0);
+
+
+                  if (now > endDateTime) {
+                    setModalMsg("Sorry, this course has already taken place.");
+                    setShowModal(true);
+                    return;
+                  }
+
+
+                  if (!userDetails?.id) {
+                    setModalMsg("Please log in to book this course.");
+                    setShowModal(true);
+                    return;
+                  }
+
+
+                  if (isAlreadyBooked) {
+                    return;
+                  }
+
+
+                  handleCheckout(item.name, item.price + item.Vit, item._id);
+                }}
+              >
+                {isAlreadyBooked ? "Booked" : "Book Now"}
+              </button>
+
+              {/* ENQUIRY BUTTON */}
+              <button
+                className="courseBtn enquiryBtn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.location.href = "mailto:hello@madeformanners.com";
+                }}
+              >
+                Enquiry Now
+              </button>
+
+            </div>
           </div>
         </div >
       );
@@ -298,7 +366,7 @@ const CoursesContaner = ({ type = "all" }) => {
 
   return (
     <div className="itemsContaner">
-
+      <Loading />
       <div className="mainContaner">
         {Array.isArray(courses) ? (
           playCoursesList()

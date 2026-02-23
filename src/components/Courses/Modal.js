@@ -15,7 +15,7 @@ const CourseModal = () => {
   const { courseType } = location.state || {};
 
   const state = useSelector((state) => state.data);
-
+ 
   const {
     userDetails,
     courseDetails,
@@ -29,6 +29,7 @@ const CourseModal = () => {
     serverUrl,
     categories
   } = useBetween(state.useShareState);
+
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [error, setError] = useState(false);
@@ -46,13 +47,14 @@ const CourseModal = () => {
     endtime,
     img,
     price,
+    Vit,
     recommended,
     isNotLive = false,
     categories: selectedCategories = [],
     coursePlace,
   } = courseDetails;
   // alert(coursePlace)
-
+ 
   const initCourseModal = () => {
     setCourseDetails({
       name: '',
@@ -178,8 +180,10 @@ const CourseModal = () => {
     const id = courseDetails.id;
     const courseData = {
       ...courseDetails,
-      img: courseDetails.img || noPhoto
+      img: courseDetails.img || noPhoto,
+      
     };
+
 
     if (editOrAdd === 'Add') {
 
@@ -215,7 +219,9 @@ const CourseModal = () => {
 
     if (courseDetails.name !== '') {
       setModalIsOpen(true);
+      
     }
+
   }, [courseDetails]);
 
   return (
@@ -254,10 +260,28 @@ const CourseModal = () => {
               <input type="text" name="name" value={name} onChange={handleChange} placeholder="Enter name" required />
             </div>
 
-            {/* <div>
-              <label className="lable">Course Price <span className="required">*</span></label>
+            <div>
+              <label className="lable">Course Price (£) <span className="required">*</span></label>
               <input type="number" name="price" value={price} onChange={handleChange} placeholder="Course Price" required />
-            </div> */}
+            </div>
+            <div>
+
+
+              <div>
+                <label className="lable">VIT Value (£)</label>
+                <input
+                  type="number"
+                  name="Vit"
+                  value={Vit}
+                  onChange={(e) =>
+                    setCourseDetails(prev => ({ ...prev, Vit: e.target.value }))
+                  }
+                  placeholder="Enter VIT amount"
+                />
+
+              </div>
+
+            </div>
             <div>
               <label className="lable">Course Description </label>
               <textarea name="description" value={description} onChange={handleChange} placeholder="Enter description" rows="3" required></textarea>

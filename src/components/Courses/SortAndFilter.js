@@ -29,6 +29,7 @@ const SortAndFilter = () => {
 
     useEffect(() => {
         if (Array.isArray(courses) && courses.length > 0 && originalCoursesRef.current.length === 0) {
+
             originalCoursesRef.current = courses;
             const maxPrice = Math.max(...courses.map(c => c.price || 0));
             setMaxCoursePrice(maxPrice);
@@ -52,11 +53,15 @@ const SortAndFilter = () => {
     const handleFilter = () => {
         let filtered = [...originalCoursesRef.current];
 
-        if (showBookedOnly && userDetails?.email && courseType == 'Online Course') {
-            filtered = filtered.filter(course =>
+        if (showBookedOnly && userDetails?.email) {
+
+            filtered = filtered.filter(course =>{
                 Array.isArray(course.bookedUsers) &&
                 course.bookedUsers.some(u => u.email === userDetails.email)
+                
+            }
             );
+           
         }
 
         if (selectedLevels.length > 0) {
@@ -98,9 +103,18 @@ const SortAndFilter = () => {
         }
 
         const [minPrice, maxPrice] = priceRange;
-        filtered = filtered.filter(course => course.price >= minPrice && course.price <= maxPrice);
+
+        filtered = filtered.filter(course => {
+
+            const coursePrice = Number(course.price) || 0;
+
+            return coursePrice >= minPrice && coursePrice <= maxPrice;
+        });
+        // alert(filtered.length)
 
         setCourses(filtered);
+        console.log(filtered)
+        console.log(courses)
     };
 
     useEffect(() => {
@@ -173,7 +187,7 @@ const SortAndFilter = () => {
                         />
                     </div>
 
-                    {/* <div className="mt-3">
+                    <div className="mt-3">
                         <strong>By Price</strong>
                         <Slider
                             range
@@ -183,11 +197,11 @@ const SortAndFilter = () => {
                             onChange={setPriceRange}
                         />
                         <div className="d-flex justify-content-between mt-1">
-                            <span>${priceRange[0]}</span>
-                            <span>${priceRange[1]}</span>
+                            <span>£{priceRange[0]}</span>
+                            <span>£{priceRange[1]}</span>
                         </div>
-                    </div> */}
-                    {/* {userDetails && (
+                    </div>
+                    {userDetails?.email && (
                         <div className="mt-3">
                             <strong>Status</strong>
                             <div className="d-flex align-items-center mt-2">
@@ -202,7 +216,7 @@ const SortAndFilter = () => {
                                 </label>
                             </div>
                         </div>
-                    )} */}
+                    )}
                 </Dropdown.Menu>
             </Dropdown>
 
